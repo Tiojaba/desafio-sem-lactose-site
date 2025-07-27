@@ -36,18 +36,17 @@ const WistiaPlayer = ({ videoId }: { videoId: string }) => {
   );
 };
 
-const SimpleCtaButton = () => (
+const SimpleCtaButton = ({ onScroll }: { onScroll: () => void }) => (
     <div className="text-center py-8">
-      <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-        <Button 
-            size="lg" 
-            className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
-        >
-            <span className="text-center">
-                SIM, QUERO RESOLVER ISSO!
-            </span>
-        </Button>
-      </a>
+      <Button 
+          size="lg" 
+          className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
+          onClick={onScroll}
+      >
+          <span className="text-center">
+              SIM, QUERO RESOLVER ISSO!
+          </span>
+      </Button>
     </div>
 );
 
@@ -78,6 +77,10 @@ export default function Home() {
     const today = new Date();
     setCurrentDate(format(today, "d 'de' MMMM", { locale: ptBR }));
   }, []);
+
+  const handleScrollToFinalCta = () => {
+    finalCtaRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const testimonials = [
     {
@@ -146,7 +149,7 @@ export default function Home() {
             <Card className="bg-white shadow-lg border-red-200/50">
                 <CardHeader>
                     <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                        <Frown className="text-primary h-8 w-8"/> Você se sente frustrada com suas restrições alimentares?
+                        <Frown className="text-primary h-10 w-10"/> Você se sente frustrada com suas restrições alimentares?
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
@@ -158,7 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      <SimpleCtaButton />
+      <SimpleCtaButton onScroll={handleScrollToFinalCta} />
 
       {/* Pain Point 2: Lack of Money */}
       <section className="w-full py-12 md:py-16 bg-gray-50">
@@ -166,7 +169,7 @@ export default function Home() {
             <Card className="bg-white shadow-lg border-yellow-300/50">
                 <CardHeader>
                     <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                        <DollarSign className="text-primary h-8 w-8"/> A falta de dinheiro te impede de realizar seus sonhos?
+                        <DollarSign className="text-primary h-10 w-10"/> A falta de dinheiro te impede de realizar seus sonhos?
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
@@ -178,7 +181,7 @@ export default function Home() {
         </div>
       </section>
 
-      <SimpleCtaButton />
+      <SimpleCtaButton onScroll={handleScrollToFinalCta} />
 
       {/* Solution Section */}
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
@@ -301,5 +304,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
