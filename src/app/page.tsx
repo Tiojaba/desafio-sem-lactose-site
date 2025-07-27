@@ -4,7 +4,8 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, ShieldCheck, Heart } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { CheckCircle, ShieldCheck, Heart, Users, Brain, HelpCircle } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { format } from 'date-fns';
@@ -65,6 +66,25 @@ export default function Home() {
     },
   ];
 
+  const faqItems = [
+    {
+      question: "Preciso de experiência na cozinha para fazer as receitas?",
+      answer: "De jeito nenhum! As receitas foram criadas para serem simples e fáceis de seguir, mesmo que você seja iniciante. O passo a passo é detalhado para garantir seu sucesso."
+    },
+    {
+      question: "Os ingredientes são difíceis de encontrar?",
+      answer: "Não. Priorizamos ingredientes fáceis de achar em supermercados e lojas de produtos naturais em todo o Brasil. Você não precisará de nada exótico ou caro."
+    },
+    {
+      question: "Realmente posso ganhar dinheiro com essas receitas?",
+      answer: "Com certeza! O guia inclui dicas de como precificar e vender seus doces, transformando seu novo hobby em uma fonte de renda extra. Muitas alunas já estão lucrando!"
+    },
+    {
+      question: "O acesso ao guia é vitalício?",
+      answer: "Sim! Ao adquirir o guia 'Minha Receita', você terá acesso ilimitado a todo o material para sempre, incluindo futuras atualizações, para consultar quando quiser."
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="beforeInteractive" />
@@ -88,9 +108,6 @@ export default function Home() {
       <div className="transition-all duration-700 ease-in-out">
           <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
             <div className="container mx-auto px-4 text-center">
-                <p className="text-lg md:text-2xl font-semibold text-secondary mb-8 max-w-3xl mx-auto">
-                  Como você viu no vídeo da Isabella, essa jornada é possível para você também!
-                </p>
                 <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Apresento a você o guia completo</h2>
                 <h1 className="text-3xl md:text-5xl font-bold text-primary mt-2 mb-10">Minha Receita: Doces e Delícias Sem Culpa e com Lucro!</h1>
 
@@ -119,6 +136,30 @@ export default function Home() {
                     </div>
 
                 </div>
+            </div>
+          </section>
+
+          {/* Motivational Images Section */}
+          <section className="py-12 md:py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <Image 
+                  src="https://placehold.co/600x400.png"
+                  alt="Família feliz cozinhando junto"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-xl"
+                  data-ai-hint="happy family cooking"
+                />
+                 <Image 
+                  src="https://placehold.co/600x400.png"
+                  alt="Crianças comendo doces saudáveis e sorrindo"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-xl"
+                  data-ai-hint="children eating healthy"
+                />
+              </div>
             </div>
           </section>
 
@@ -163,6 +204,27 @@ export default function Home() {
               </div>
             </div>
           </section>
+
+          {/* FAQ Section */}
+          <section className="w-full py-12 md:py-20 bg-gray-50">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">
+                Perguntas Frequentes
+              </h2>
+              <Accordion type="single" collapsible className="w-full">
+                {faqItems.map((item, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left text-lg font-semibold text-secondary">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base text-gray-700">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </section>
       </div>
 
       {/* Footer */}
@@ -174,3 +236,4 @@ export default function Home() {
     </div>
   );
 }
+
