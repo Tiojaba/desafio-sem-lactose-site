@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -5,15 +6,69 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, ShieldCheck, Heart } from 'lucide-react';
 import Image from 'next/image';
+import Script from 'next/script';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+
+declare global {
+  interface Window {
+    _wq: any[];
+  }
+}
+
+const WistiaPlayer = ({ videoId, onVideoEnd }: { videoId: string, onVideoEnd: () => void }) => {
+  useEffect(() => {
+    window._wq = window._wq || [];
+    window._wq.push({
+      id: videoId,
+      onReady: (video: any) => {
+        video.bind('end', () => {
+          onVideoEnd();
+          return video.unbind; // Cleanup
+        });
+      },
+    });
+  }, [videoId, onVideoEnd]);
+
+  const playerStyle = {
+    height: "100%",
+    position: "relative",
+    width: "100%",
+  };
+
+  const wrapperStyle = {
+    width: "100%",
+    paddingBottom: "177.21518987341772%", // 9:16 aspect ratio
+    position: "relative" as "relative",
+    height: 0,
+    overflow: "hidden" as "hidden",
+  }
+
+  return (
+    <>
+      <style>{`
+        .wistia_embed {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+      `}</style>
+      <div style={wrapperStyle}>
+          <div className={`wistia_embed wistia_async_${videoId}`} style={playerStyle}>
+            &nbsp;
+          </div>
+      </div>
+    </>
+  );
+};
 
 
 export default function Home() {
   const [showOffer, setShowOffer] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const today = new Date();
@@ -24,22 +79,6 @@ export default function Home() {
   const handleVideoEnd = () => {
     setShowOffer(true);
   };
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Força a exibição da oferta em 5 segundos para teste em desenvolvimento
-      // const timer = setTimeout(() => {
-      //   setShowOffer(true);
-      // }, 5000);
-
-      video.addEventListener('ended', handleVideoEnd);
-      return () => {
-        // clearTimeout(timer);
-        video.removeEventListener('ended', handleVideoEnd);
-      };
-    }
-  }, [videoRef]);
 
   const testimonials = [
     {
@@ -64,27 +103,19 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="beforeInteractive" />
+      
       {/* Hero Section (VSL) */}
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-3xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
-            Cansado de sofrer com intolerâncias alimentares?
+            CANSADO DE SOFRER COM INTOLERÂNCIAS ALIMENTARES?
           </h2>
           <p className="text-xl md:text-3xl font-bold text-primary mt-4 mb-8 max-w-4xl mx-auto">
-            Descobrir o sabor sem culpa e ainda fazer uma renda extra nunca foi tão fácil!
+            DESCUBRA O SABOR SEM CULPA E AINDA FAÇA UMA RENDA EXTRA!
           </p>
-          <div className="max-w-4xl mx-auto bg-black rounded-lg shadow-2xl overflow-hidden aspect-video">
-             {/* Placeholder for VSL */}
-             <video
-              ref={videoRef}
-              className="w-full h-full"
-              controls
-              poster="https://placehold.co/1280x720.png"
-              data-ai-hint="cooking video"
-            >
-              {/* <source src="/path/to/your/video.mp4" type="video/mp4" /> */}
-              Seu navegador não suporta o player de vídeo.
-            </video>
+          <div className="max-w-md mx-auto bg-black rounded-lg shadow-2xl overflow-hidden">
+             <WistiaPlayer videoId="5xgv99ozmz" onVideoEnd={handleVideoEnd} />
           </div>
         </div>
       </section>
@@ -178,4 +209,5 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+
+    
