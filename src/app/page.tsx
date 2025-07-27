@@ -187,6 +187,29 @@ export default function Home() {
             <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Imagine resolver esses dois problemas de uma vez só!</h2>
             <h1 className="text-3xl md:text-5xl font-bold text-primary mt-2 mb-10">Apresentando: Minha Receita!</h1>
 
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
+              <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
+                <Image 
+                  src="https://i.imgur.com/WBtdvhJ.jpeg" 
+                  alt="Doce sem culpa" 
+                  width={600} 
+                  height={400} 
+                  className="w-full h-full object-cover"
+                  data-ai-hint="delicious dessert"
+                />
+              </div>
+              <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
+                <Image 
+                  src="https://i.imgur.com/qngt4kS.jpeg" 
+                  alt="Renda extra com doces" 
+                  width={600} 
+                  height={400} 
+                  className="w-full h-full object-cover"
+                  data-ai-hint="homemade sweets"
+                />
+              </div>
+            </div>
+
             <div className="max-w-4xl mx-auto text-left space-y-8">
                 <Card className="bg-white shadow-lg border-primary/20">
                     <CardHeader>
@@ -196,7 +219,7 @@ export default function Home() {
                        <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 1: Fim das Restrições!</strong> Chega de sofrer! Coma doces deliciosos sem se preocupar com lactose, glúten ou açúcar. Recupere o prazer de comer sem medo.</span></p>
                        <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 2: Dinheiro no Bolso!</strong> Transforme sua paixão em lucro! Um caminho testado para fazer uma renda extra vendendo doces irresistíveis e conquistar sua independência financeira.</span></p>
                        <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Cuidado e Sabor para quem você Ama:</strong> Ingredientes saudáveis para você e sua família, sem abrir mão do sabor.</span></p>
-                       <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou without restrições, perfeitas para compartilhar e celebrar.</span></p>
+                       <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou sem restrições, perfeitas para compartilhar e celebrar.</span></p>
                     </CardContent>
                 </Card>
             </div>
