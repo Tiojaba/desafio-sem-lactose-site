@@ -21,14 +21,14 @@ const WistiaPlayer = ({ videoId }: { videoId: string }) => {
   };
 
   const wrapperStyle = {
-    height: "100%",
+    height: "0",
     paddingBottom: "177.77%", // 9:16 aspect ratio
     position: "relative" as "relative",
     width: "100%",
   }
 
   return (
-    <div style={wrapperStyle} className="w-full h-full">
+    <div style={wrapperStyle} className="w-full h-full rounded-md overflow-hidden">
         <div className={`wistia_embed wistia_async_${videoId} videoFoam=true`} style={playerStyle}>
           &nbsp;
         </div>
@@ -90,16 +90,16 @@ export default function Home() {
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="beforeInteractive" />
       
       {/* Hero Section (VSL) */}
-      <section className="w-full py-6 md:py-12 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
+      <section className="w-full py-6 md:py-8 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
+          <h2 className="text-xl md:text-3xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
             Cansado de sofrer com intolerâncias alimentares?
           </h2>
           <p className="text-lg md:text-2xl font-bold text-primary mt-2 mb-4 max-w-4xl mx-auto">
             Descubra o sabor sem culpa e ainda faça uma renda extra!
           </p>
-          <div className="max-w-md mx-auto bg-black rounded-lg shadow-2xl overflow-hidden">
-             <WistiaPlayer videoId="5xgv99ozmz" />
+          <div className="max-w-sm mx-auto bg-gradient-to-b from-primary to-[#FF9696] p-2 rounded-lg shadow-2xl">
+            <WistiaPlayer videoId="5xgv99ozmz" />
           </div>
         </div>
       </section>
@@ -130,8 +130,10 @@ export default function Home() {
                         <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
                           <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDate}!</p>
                         </div>
-                         <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
+                        <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
+                           <span className="text-center">
                             QUERO MINHA LIBERDADE <br/> E MINHA RENDA EXTRA AGORA!
+                           </span>
                         </Button>
                     </div>
 
