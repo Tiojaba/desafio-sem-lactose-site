@@ -74,12 +74,16 @@ const FinalCtaButton = ({currentDateText}: {currentDateText: string}) => {
 export default function Home() {
   const finalCtaRef = useRef<HTMLDivElement>(null);
   const [currentDateText, setCurrentDateText] = useState("carregando...");
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [isClient, setIsClient] = useState(false);
   
   useEffect(() => {
     // This runs only on the client, after the initial render.
-    setIsClient(true);
+    // This ensures that browser-specific APIs and values are only used here,
+    // preventing hydration errors.
     setCurrentDateText(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
+    setCurrentYear(new Date().getFullYear());
+    setIsClient(true);
   }, []);
 
   const handleScrollToFinalCta = () => {
@@ -127,15 +131,13 @@ export default function Home() {
   ];
 
   if (!isClient) {
-    // Render a placeholder or null on the server and initial client render
-    return null; 
+    return null; // or a loading spinner
   }
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
       
-      {/* Hero Section (Headline + VSL) */}
       <section className="w-full min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-4xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
@@ -152,7 +154,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pain Point 1: Food Intolerance */}
+      
       <section className="w-full py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
             <Card className="bg-white shadow-lg border-red-200/50">
@@ -172,8 +174,6 @@ export default function Home() {
 
       <SimpleCtaButton onClick={handleScrollToFinalCta} />
 
-
-      {/* Pain Point 2: Lack of Money */}
       <section className="w-full py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
             <Card className="bg-white shadow-lg border-yellow-300/50">
@@ -193,7 +193,6 @@ export default function Home() {
       
       <SimpleCtaButton onClick={handleScrollToFinalCta} />
 
-      {/* Solution Section */}
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
         <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Imagine resolver esses dois problemas de uma vez só!</h2>
@@ -237,12 +236,11 @@ export default function Home() {
             </div>
         </div>
       </section>
-      
+  
       <div ref={finalCtaRef}>
         <FinalCtaButton currentDateText={currentDateText} />
       </div>
-
-      {/* Guarantee Section */}
+      
       <section className="w-full py-12 bg-[#FFC8C8]/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
@@ -257,7 +255,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossas alunas estão dizendo</h2>
@@ -285,8 +282,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* FAQ Section */}
+      
       <section className="w-full py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">
@@ -310,11 +306,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full py-6 mt-auto bg-gray-100">
         <div className="container mx-auto text-center text-gray-500 px-4">
-          <p>&copy; {new Date().getFullYear()} Minha Receita. Todos os direitos reservados.</p>
+          <p>&copy; {currentYear} Minha Receita. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>
   );
 }
 
-    
