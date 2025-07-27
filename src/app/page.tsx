@@ -33,35 +33,26 @@ const WistiaPlayer = ({ videoId, onVideoEnd }: { videoId: string, onVideoEnd: ()
 
   const playerStyle = {
     height: "100%",
-    position: "relative",
+    position: "absolute" as "absolute",
+    left: 0,
+    top: 0,
     width: "100%",
   };
 
   const wrapperStyle = {
-    width: "100%",
-    paddingBottom: "177.21518987341772%", // 9:16 aspect ratio
-    position: "relative" as "relative",
     height: 0,
     overflow: "hidden" as "hidden",
+    paddingBottom: "177.77777777777777%", // 9:16 aspect ratio
+    position: "relative" as "relative",
+    width: "100%",
   }
 
   return (
-    <>
-      <style>{`
-        .wistia_embed {
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-        }
-      `}</style>
-      <div style={wrapperStyle}>
-          <div className={`wistia_embed wistia_async_${videoId}`} style={playerStyle}>
-            &nbsp;
-          </div>
-      </div>
-    </>
+    <div style={wrapperStyle}>
+        <div className={`wistia_embed wistia_async_${videoId}`} style={playerStyle}>
+          &nbsp;
+        </div>
+    </div>
   );
 };
 
