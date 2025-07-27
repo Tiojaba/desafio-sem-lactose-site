@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -36,8 +36,23 @@ const WistiaPlayer = ({ videoId }: { videoId: string }) => {
   );
 };
 
-const CtaButton = ({currentDate}: {currentDate: string}) => (
-  <div className="text-center py-8">
+const SimpleCtaButton = ({ onClick }: { onClick: () => void }) => (
+    <div className="text-center py-8">
+        <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
+            onClick={onClick}
+        >
+            <span className="text-center">
+                SIM, QUERO RESOLVER ISSO!
+            </span>
+        </Button>
+    </div>
+);
+
+
+const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string, forwardedRef: React.Ref<HTMLDivElement>}) => (
+  <div className="text-center py-8" ref={forwardedRef}>
       <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
       <p className="text-4xl md:text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
       <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
@@ -54,6 +69,11 @@ const CtaButton = ({currentDate}: {currentDate: string}) => (
 
 export default function Home() {
   const [currentDate, setCurrentDate] = useState('');
+  const finalCtaRef = useRef<HTMLDivElement>(null);
+
+  const handleScrollToOffer = () => {
+    finalCtaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
 
   useEffect(() => {
     const today = new Date();
@@ -71,7 +91,7 @@ export default function Home() {
       name: "Mariana Lima",
       text: "Esse guia mudou minha vida! Voltei a comer sem medo e ainda comecei um pequeno negócio com os doces. Muito, muito feliz e grata!",
       image: "https://i.imgur.com/m03wbdO.jpeg",
-      hint: "man happy"
+      hint: "woman happy"
     },
     {
       name: "Juliana Costa",
@@ -138,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaButton currentDate={currentDate} />
+      <SimpleCtaButton onClick={handleScrollToOffer} />
 
       {/* Pain Point 2: Lack of Money */}
       <section className="w-full py-12 md:py-16 bg-gray-50">
@@ -157,7 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaButton currentDate={currentDate} />
+      <SimpleCtaButton onClick={handleScrollToOffer} />
 
       {/* Solution Section */}
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
@@ -181,7 +201,7 @@ export default function Home() {
         </div>
       </section>
       
-      <CtaButton currentDate={currentDate} />
+      <FinalCtaButton currentDate={currentDate} forwardedRef={finalCtaRef} />
 
       {/* Guarantee Section */}
       <section className="w-full py-12 bg-[#FFC8C8]/50">
