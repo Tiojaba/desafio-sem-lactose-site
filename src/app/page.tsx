@@ -120,9 +120,9 @@ export default function Home() {
                         </CardHeader>
                         <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
                            <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Liberdade e Prazer:</strong> Volte a comer doces deliciosos sem se preocupar com lactose, glúten ou açúcar.</span></p>
-                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Sua Independência:</strong> Um caminho delicioso para criar sua renda extra, com dicas de preço e venda.</span></p>
-                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Cuidado e Sabor:</strong> Ingredientes saudáveis que cuidam de você e de quem você ama, sem abrir mão do sabor.</span></p>
-                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou without restrições, perfeitas para compartilhar.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Sua Independência Financeira:</strong> Um caminho delicioso para criar sua renda extra, com dicas de preço e venda para você brilhar.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Cuidado e Sabor para quem você Ama:</strong> Ingredientes saudáveis para você e sua família, sem abrir mão do sabor.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou sem restrições, perfeitas para compartilhar e celebrar.</span></p>
                         </CardContent>
                     </Card>
 
@@ -148,7 +148,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image 
-                  src="https://placehold.co/600x400.png"
+                  src="https://i.imgur.com/8aL0a3m.jpeg"
                   alt="Família feliz cozinhando junto"
                   width={600}
                   height={400}
@@ -173,9 +173,9 @@ export default function Home() {
               <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
                   <ShieldCheck className="h-20 w-20 md:h-24 md:w-24 text-primary shrink-0"/>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Satisfação é 100% Garantida</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Satisfação ou Seu Dinheiro de Volta</h3>
                     <p className="text-gray-700 mt-2 text-base md:text-lg">
-                        Seu risco é zero. Se por qualquer motivo você não se apaixonar pelo guia "Minha Receita", basta pedir seu dinheiro de volta em até 7 dias. Simples assim, sem perguntas e sem ressentimentos.
+                        Seu risco é zero. Se por qualquer motivo você não se apaixonar pelo guia "Minha Receita", basta nos enviar um e-mail em até 7 dias e devolvemos todo o seu investimento. Simples assim, sem perguntas e sem ressentimentos.
                     </p>
                   </div>
               </div>
