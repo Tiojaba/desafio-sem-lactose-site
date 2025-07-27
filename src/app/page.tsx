@@ -92,10 +92,10 @@ export default function Home() {
       {/* Hero Section (VSL) */}
       <section className="w-full py-6 md:py-8 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
             Cansado de sofrer com intolerâncias alimentares?
           </h2>
-          <p className="text-lg md:text-2xl font-bold text-primary mt-2 mb-4 max-w-4xl mx-auto">
+          <p className="text-base md:text-xl text-primary mt-4 mb-4 max-w-4xl mx-auto">
             Descubra o sabor sem culpa e ainda faça uma renda extra!
           </p>
           <div className="max-w-sm mx-auto bg-gradient-to-b from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl">
