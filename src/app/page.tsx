@@ -22,12 +22,10 @@ export default function Home() {
   const finalCtaRef = useRef<HTMLDivElement>(null);
   const [currentDateText, setCurrentDateText] = useState("...");
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [isClient, setIsClient] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const videoId = "5xgv99ozmz";
 
   useEffect(() => {
-    setIsClient(true);
     setCurrentDateText(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
     setCurrentYear(new Date().getFullYear());
     
@@ -39,7 +37,8 @@ export default function Home() {
         let hasTriggered = false; // Prevents multiple triggers
         video.bind("timechange", function(t: number) {
           const duration = video.duration();
-          if (!hasTriggered && duration - t <= 10) {
+          // Ensure duration is a valid number greater than 10
+          if (duration && !hasTriggered && duration - t <= 10) {
             hasTriggered = true;
             setShowContent(true);
           }
@@ -93,10 +92,6 @@ export default function Home() {
     }
   ];
 
-  if (!isClient) {
-    return null; // Render nothing on the server
-  }
-
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
@@ -105,13 +100,13 @@ export default function Home() {
           {/* Hero Section */}
           <section className="w-full h-[100dvh] flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
             <div className="container mx-auto text-center px-4">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
                 Cansada de não poder comer o que gosta e de se preocupar com dinheiro?
               </h2>
               <p className="text-base md:text-lg text-primary mt-4 mb-4 max-w-4xl mx-auto font-normal">
                 Descubra como saborear doces incríveis, sem culpa, e ainda criar uma nova fonte de renda que pode mudar sua vida.
               </p>
-              <div className="max-w-xs mx-auto bg-gradient-to-r from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
+              <div className="max-w-[280px] mx-auto bg-gradient-to-r from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
                 <div className={`wistia_embed wistia_async_${videoId} videoFoam=true rounded-md overflow-hidden`}>
                   &nbsp;
                 </div>
@@ -312,5 +307,3 @@ export default function Home() {
         </main>
     </div>
   );
-
-    
