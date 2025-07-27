@@ -148,7 +148,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image 
-                  src="https://i.imgur.com/8aL0a3m.jpeg"
+                  src="https://i.imgur.com/WBtdvhJ.jpeg"
                   alt="Família feliz cozinhando junto"
                   width={600}
                   height={400}
@@ -242,7 +242,5 @@ export default function Home() {
     </div>
   );
 }
-
-    
 
     
