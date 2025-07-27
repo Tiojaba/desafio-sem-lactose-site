@@ -77,7 +77,7 @@ export default function Home() {
     },
     {
       question: "Realmente posso ganhar dinheiro com essas receitas?",
-      answer: "Com certeza! O guia inclui dicas de como precificar e vender seus doces, transformando seu novo hobby em uma fonte de renda extra. Muitas alunas já estão lucrando!"
+      answer: "Com certeza! O guia inclui dicas de como precificar e vender seus doces, transformando seu novo hobby em uma fonte de renda. Muitas alunas já estão lucrando!"
     },
     {
       question: "O acesso ao guia é vitalício?",
@@ -93,12 +93,12 @@ export default function Home() {
       <section className="w-full py-6 md:py-8 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-3xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
-            Cansado de sofrer com intolerâncias alimentares?
+            Cansada de se sentir limitada por intolerâncias alimentares?
           </h2>
-          <p className="text-base md:text-xl text-primary mt-4 mb-4 max-w-4xl mx-auto">
-            Descubra o sabor sem culpa e ainda faça uma renda extra!
+          <p className="text-base md:text-lg text-primary mt-4 mb-4 max-w-4xl mx-auto font-normal">
+            Imagine poder saborear doces incríveis, sem culpa, e ainda ter a chance de criar sua própria fonte de renda.
           </p>
-          <div className="max-w-sm mx-auto bg-gradient-to-b from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl">
+          <div className="max-w-sm mx-auto bg-gradient-to-b from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
             <div className="rounded-md overflow-hidden">
              <WistiaPlayer videoId="5xgv99ozmz" />
             </div>
@@ -110,19 +110,19 @@ export default function Home() {
       <div className="transition-all duration-700 ease-in-out">
           <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Apresento a você o guia completo</h2>
+                <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Chegou a sua vez de dar a volta por cima!</h2>
                 <h1 className="text-3xl md:text-5xl font-bold text-primary mt-2 mb-10">Minha Receita: Doces e Delícias Sem Culpa e com Lucro!</h1>
 
                 <div className="max-w-4xl mx-auto text-left space-y-8">
                     <Card className="bg-white shadow-lg border-primary/20">
                         <CardHeader>
-                            <CardTitle className="text-secondary text-xl md:text-2xl flex items-center gap-2"><Heart className="text-primary"/>Os Benefícios em Detalhe</CardTitle>
+                            <CardTitle className="text-secondary text-xl md:text-2xl flex items-center gap-2"><Heart className="text-primary"/>O que você vai conquistar:</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
-                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Liberdade para comer:</strong> Receitas deliciosas sem lactose, glúten e açúcar.</span></p>
-                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Renda Extra:</strong> Aprenda a precificar e vender seus produtos.</span></p>
-                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Saúde e Sabor:</strong> Ingredientes saudáveis que não sacrificam o paladar.</span></p>
-                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Para toda a família:</strong> Agradam a todos, com ou sem restrições.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Liberdade e Prazer:</strong> Volte a comer doces deliciosos sem se preocupar com lactose, glúten ou açúcar.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Sua Independência:</strong> Um caminho delicioso para criar sua renda extra, com dicas de preço e venda.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Cuidado e Sabor:</strong> Ingredientes saudáveis que cuidam de você e de quem você ama, sem abrir mão do sabor.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou without restrições, perfeitas para compartilhar.</span></p>
                         </CardContent>
                     </Card>
 
@@ -134,7 +134,7 @@ export default function Home() {
                         </div>
                         <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
                            <span className="text-center">
-                            QUERO MINHA LIBERDADE <br/> E MINHA RENDA EXTRA AGORA!
+                            SIM, QUERO TRANSFORMAR MINHA VIDA!
                            </span>
                         </Button>
                     </div>
@@ -173,9 +173,9 @@ export default function Home() {
               <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
                   <ShieldCheck className="h-20 w-20 md:h-24 md:w-24 text-primary shrink-0"/>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-secondary">Garantia de Satisfação Incondicional de 7 Dias</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Satisfação é 100% Garantida</h3>
                     <p className="text-gray-700 mt-2 text-base md:text-lg">
-                        Seu risco é zero. Se por qualquer motivo você não amar o guia "Minha Receita", basta pedir seu dinheiro de volta em até 7 dias. Simples assim, sem perguntas.
+                        Seu risco é zero. Se por qualquer motivo você não se apaixonar pelo guia "Minha Receita", basta pedir seu dinheiro de volta em até 7 dias. Simples assim, sem perguntas e sem ressentimentos.
                     </p>
                   </div>
               </div>
@@ -185,7 +185,7 @@ export default function Home() {
           {/* Testimonials Section */}
           <section className="py-12 md:py-20">
             <div className="container mx-auto px-4">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossos alunos estão dizendo</h2>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossas alunas estão dizendo</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {testimonials.map((testimonial, index) => (
                   <Card key={index} className="bg-white border-primary/20 shadow-xl text-center flex flex-col">
@@ -215,7 +215,7 @@ export default function Home() {
           <section className="w-full py-12 md:py-20 bg-gray-50">
             <div className="container mx-auto px-4 max-w-4xl">
               <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">
-                Perguntas Frequentes
+                Suas Dúvidas, Respondidas
               </h2>
               <Accordion type="single" collapsible className="w-full">
                 {faqItems.map((item, index) => (
@@ -242,3 +242,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
