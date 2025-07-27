@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -11,7 +12,7 @@ import Script from 'next/script';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
-const WistiaPlayer = ({ videoId }: { videoId: string }) => {
+const WistiaPlayer = dynamic(() => Promise.resolve(({ videoId }: { videoId: string }) => {
   const playerStyle = {
     height: "100%",
     position: "absolute" as "absolute",
@@ -34,7 +35,8 @@ const WistiaPlayer = ({ videoId }: { videoId: string }) => {
         </div>
     </div>
   );
-};
+}), { ssr: false });
+
 
 const SimpleCtaButton = ({ onClick }: { onClick: () => void }) => (
     <div className="text-center py-8">
@@ -78,12 +80,9 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
   
   useEffect(() => {
-    // This runs only on the client, after the initial render.
-    // This ensures that browser-specific APIs and values are only used here,
-    // preventing hydration errors.
+    setIsClient(true);
     setCurrentDateText(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
     setCurrentYear(new Date().getFullYear());
-    setIsClient(true);
   }, []);
 
   const handleScrollToFinalCta = () => {
@@ -131,9 +130,9 @@ export default function Home() {
   ];
 
   if (!isClient) {
-    return null; // or a loading spinner
+    return null; 
   }
-
+  
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
@@ -312,4 +311,3 @@ export default function Home() {
     </div>
   );
 }
-
