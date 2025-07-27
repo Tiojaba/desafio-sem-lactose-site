@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, ShieldCheck, Heart, Frown, DollarSign, XCircle } from 'lucide-react';
+import { CheckCircle, ShieldCheck, Heart, Frown, DollarSign, XCircle, Loader } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { format } from 'date-fns';
@@ -75,12 +75,10 @@ const FinalCtaButton = ({currentDateText}: {currentDateText: string}) => {
 
 export default function Home() {
   const finalCtaRef = useRef<HTMLDivElement>(null);
-  const [currentDateText, setCurrentDateText] = useState("carregando...");
+  const [currentDateText, setCurrentDateText] = useState("...");
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [isClient, setIsClient] = useState(false);
   
   useEffect(() => {
-    setIsClient(true);
     setCurrentDateText(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
     setCurrentYear(new Date().getFullYear());
   }, []);
@@ -129,185 +127,185 @@ export default function Home() {
     }
   ];
 
-  if (!isClient) {
-    return null; 
-  }
-  
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
       
-      <section className="w-full min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
-        <div className="container mx-auto text-center px-4">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
-            Cansada de não poder comer o que gosta e de se preocupar com dinheiro?
-          </h2>
-          <p className="text-base md:text-lg text-primary mt-4 mb-4 max-w-4xl mx-auto font-normal">
-            Descubra como saborear doces incríveis, sem culpa, e ainda criar uma nova fonte de renda que pode mudar sua vida.
-          </p>
-          <div className="max-w-xs mx-auto bg-gradient-to-r from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
-            <div className="rounded-md overflow-hidden">
-             <WistiaPlayer videoId="5xgv99ozmz" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      <section className="w-full py-12 md:py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-            <Card className="bg-white shadow-lg border-red-200/50">
-                <CardHeader>
-                    <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                        <Frown className="text-primary h-12 w-12"/> Você se sente frustrada com suas restrições alimentares?
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
-                  <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>É horrível ir a festas e ver todo mundo comendo bolos e doces, enquanto você fica só olhando com medo de passar mal.</span></p>
-                  <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você já se cansou de ter que ler cada rótulo no mercado e de ter que ficar explicando suas restrições para as pessoas.</span></p>
-                  <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A alegria de comer um docinho depois do almoço parece um luxo proibido, e muitas vezes você acaba comendo coisas sem graça só por segurança.</span></p>
-                </CardContent>
-            </Card>
-        </div>
-      </section>
-
-      <SimpleCtaButton onClick={handleScrollToFinalCta} />
-
-      <section className="w-full py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-            <Card className="bg-white shadow-lg border-yellow-300/50">
-                <CardHeader>
-                    <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                        <DollarSign className="text-primary h-12 w-12"/> A falta de dinheiro te impede de realizar seus sonhos?
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
-                    <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>As contas chegam todo mês e parece que o dinheiro nunca é suficiente para dar mais conforto à sua família ou realizar seus próprios sonhos.</span></p>
-                    <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A ideia de depender de um emprego que não te valoriza ou de não ter sua própria renda para fazer suas coisas é desgastante e te deixa insegura.</span></p>
-                    <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você sonha com a liberdade de ter seu próprio dinheiro, fazendo algo que você ama e que ainda te permite ficar mais perto de quem você ama.</span></p>
-                </CardContent>
-            </Card>
-        </div>
-      </section>
-      
-      <SimpleCtaButton onClick={handleScrollToFinalCta} />
-
-      <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
-        <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Imagine resolver esses dois problemas de uma vez só!</h2>
-            <h1 className="text-3xl md:text-5xl font-bold text-primary mt-2 mb-10">Apresentando: Minha Receita!</h1>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
-              <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
-                <Image 
-                  src="https://i.imgur.com/WBtdvhJ.jpeg" 
-                  alt="Doce sem culpa" 
-                  width={600} 
-                  height={400} 
-                  className="w-full h-full object-cover"
-                  data-ai-hint="delicious dessert"
-                />
-              </div>
-              <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
-                <Image 
-                  src="https://i.imgur.com/qngt4kS.jpeg" 
-                  alt="Renda extra com doces" 
-                  width={600} 
-                  height={400} 
-                  className="w-full h-full object-cover"
-                  data-ai-hint="homemade sweets"
-                />
+        <main>
+          <section className="w-full min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
+            <div className="container mx-auto text-center px-4">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
+                Cansada de não poder comer o que gosta e de se preocupar com dinheiro?
+              </h2>
+              <p className="text-base md:text-lg text-primary mt-4 mb-4 max-w-4xl mx-auto font-normal">
+                Descubra como saborear doces incríveis, sem culpa, e ainda criar uma nova fonte de renda que pode mudar sua vida.
+              </p>
+              <div className="max-w-xs mx-auto bg-gradient-to-r from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
+                <div className="rounded-md overflow-hidden">
+                 <WistiaPlayer videoId="5xgv99ozmz" />
+                </div>
               </div>
             </div>
+          </section>
 
-            <div className="max-w-4xl mx-auto text-left space-y-8">
-                <Card className="bg-white shadow-lg border-primary/20">
+          
+          <section className="w-full py-12 md:py-16 bg-white">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <Card className="bg-white shadow-lg border-red-200/50">
                     <CardHeader>
-                        <CardTitle className="text-secondary text-xl md:text-2xl flex items-center gap-2"><Heart className="text-primary"/>O que você vai conquistar:</CardTitle>
+                        <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
+                            <Frown className="text-primary h-12 w-12"/> Você se sente frustrada com suas restrições alimentares?
+                        </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
-                       <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 1: Fim das Restrições!</strong> Chega de sofrer! Coma doces deliciosos sem se preocupar com lactose, glúten ou açúcar. Recupere o prazer de comer sem medo.</span></p>
-                       <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 2: Dinheiro no Bolso!</strong> Transforme sua paixão em lucro! Um caminho testado para fazer uma renda extra vendendo doces irresistíveis e conquistar sua independência financeira.</span></p>
-                       <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Cuidado e Sabor para quem você Ama:</strong> Ingredientes saudáveis para você e sua família, sem abrir mão do sabor.</span></p>
-                       <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou sem restrições, perfeitas para compartilhar e celebrar.</span></p>
+                      <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>É horrível ir a festas e ver todo mundo comendo bolos e doces, enquanto você fica só olhando com medo de passar mal.</span></p>
+                      <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você já se cansou de ter que ler cada rótulo no mercado e de ter que ficar explicando suas restrições para as pessoas.</span></p>
+                      <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A alegria de comer um docinho depois do almoço parece um luxo proibido, e muitas vezes você acaba comendo coisas sem graça só por segurança.</span></p>
                     </CardContent>
                 </Card>
             </div>
-        </div>
-      </section>
-  
-      <div ref={finalCtaRef}>
-        <FinalCtaButton currentDateText={currentDateText} />
-      </div>
-      
-      <section className="w-full py-12 bg-[#FFC8C8]/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-              <ShieldCheck className="h-20 w-20 md:h-24 md:w-24 text-primary shrink-0"/>
-              <div>
-                <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Satisfação ou Seu Dinheiro de Volta</h3>
-                <p className="text-gray-700 mt-2 text-base md:text-lg">
-                    Seu risco é zero. Se por qualquer motivo você não se apaixonar pelo guia "Minha Receita", basta nos enviar um e-mail em até 7 dias e devolvemos todo o seu investimento. Simples assim, sem perguntas e sem ressentimentos.
-                </p>
-              </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossas alunas estão dizendo</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white border-primary/20 shadow-xl text-center flex flex-col">
-                <CardHeader className="items-center">
-                  <div className="flex justify-center w-full">
-                   <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={80}
-                      height={80}
-                      className="rounded-full border-4 border-primary"
-                      data-ai-hint={testimonial.hint}
+          <SimpleCtaButton onClick={handleScrollToFinalCta} />
+
+          <section className="w-full py-12 md:py-16 bg-gray-50">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <Card className="bg-white shadow-lg border-yellow-300/50">
+                    <CardHeader>
+                        <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
+                            <DollarSign className="text-primary h-12 w-12"/> A falta de dinheiro te impede de realizar seus sonhos?
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
+                        <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>As contas chegam todo mês e parece que o dinheiro nunca é suficiente para dar mais conforto à sua família ou realizar seus próprios sonhos.</span></p>
+                        <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A ideia de depender de um emprego que não te valoriza ou de não ter sua própria renda para fazer suas coisas é desgastante e te deixa insegura.</span></p>
+                        <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você sonha com a liberdade de ter seu próprio dinheiro, fazendo algo que você ama e que ainda te permite ficar mais perto de quem você ama.</span></p>
+                    </CardContent>
+                </Card>
+            </div>
+          </section>
+          
+          <SimpleCtaButton onClick={handleScrollToFinalCta} />
+
+          <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
+            <div className="container mx-auto px-4 text-center">
+                <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Imagine resolver esses dois problemas de uma vez só!</h2>
+                <h1 className="text-3xl md:text-5xl font-bold text-primary mt-2 mb-10">Apresentando: Minha Receita!</h1>
+
+                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
+                  <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
+                    <Image 
+                      src="https://i.imgur.com/WBtdvhJ.jpeg" 
+                      alt="Doce sem culpa" 
+                      width={600} 
+                      height={400} 
+                      className="w-full h-full object-cover"
+                      data-ai-hint="delicious dessert"
                     />
                   </div>
-                  <CardTitle className="text-secondary pt-2 text-xl">{testimonial.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">"{testimonial.text}"</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      <section className="w-full py-12 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">
-            Suas Dúvidas, Respondidas
-          </h2>
-          <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-lg font-semibold text-secondary">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-gray-700">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
+                  <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
+                    <Image 
+                      src="https://i.imgur.com/qngt4kS.jpeg" 
+                      alt="Renda extra com doces" 
+                      width={600} 
+                      height={400} 
+                      className="w-full h-full object-cover"
+                      data-ai-hint="homemade sweets"
+                    />
+                  </div>
+                </div>
 
-      {/* Footer */}
-      <footer className="w-full py-6 mt-auto bg-gray-100">
-        <div className="container mx-auto text-center text-gray-500 px-4">
-          <p>&copy; {currentYear} Minha Receita. Todos os direitos reservados.</p>
-        </div>
-      </footer>
+                <div className="max-w-4xl mx-auto text-left space-y-8">
+                    <Card className="bg-white shadow-lg border-primary/20">
+                        <CardHeader>
+                            <CardTitle className="text-secondary text-xl md:text-2xl flex items-center gap-2"><Heart className="text-primary"/>O que você vai conquistar:</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 1: Fim das Restrições!</strong> Chega de sofrer! Coma doces deliciosos sem se preocupar com lactose, glúten ou açúcar. Recupere o prazer de comer sem medo.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 2: Dinheiro no Bolso!</strong> Transforme sua paixão em lucro! Um caminho testado para fazer uma renda extra vendendo doces irresistíveis e conquistar sua independência financeira.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Cuidado e Sabor para quem você Ama:</strong> Ingredientes saudáveis para você e sua família, sem abrir mão do sabor.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou sem restrições, perfeitas para compartilhar e celebrar.</span></p>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+          </section>
+      
+          <div ref={finalCtaRef}>
+            <FinalCtaButton currentDateText={currentDateText} />
+          </div>
+          
+          <section className="w-full py-12 bg-[#FFC8C8]/50">
+            <div className="container mx-auto px-4">
+              <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                  <ShieldCheck className="h-20 w-20 md:h-24 md:w-24 text-primary shrink-0"/>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Satisfação ou Seu Dinheiro de Volta</h3>
+                    <p className="text-gray-700 mt-2 text-base md:text-lg">
+                        Seu risco é zero. Se por qualquer motivo você não se apaixonar pelo guia "Minha Receita", basta nos enviar um e-mail em até 7 dias e devolvemos todo o seu investimento. Simples assim, sem perguntas e sem ressentimentos.
+                    </p>
+                  </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-12 md:py-20">
+            <div className="container mx-auto px-4">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossas alunas estão dizendo</h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {testimonials.map((testimonial, index) => (
+                  <Card key={index} className="bg-white border-primary/20 shadow-xl text-center flex flex-col">
+                    <CardHeader className="items-center">
+                      <div className="flex justify-center w-full">
+                       <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={80}
+                          height={80}
+                          className="rounded-full border-4 border-primary"
+                          data-ai-hint={testimonial.hint}
+                        />
+                      </div>
+                      <CardTitle className="text-secondary pt-2 text-xl">{testimonial.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">"{testimonial.text}"</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+          
+          <section className="w-full py-12 md:py-20 bg-gray-50">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">
+                Suas Dúvidas, Respondidas
+              </h2>
+              <Accordion type="single" collapsible className="w-full">
+                {faqItems.map((item, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left text-lg font-semibold text-secondary">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base text-gray-700">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="w-full py-6 mt-auto bg-gray-100">
+            <div className="container mx-auto text-center text-gray-500 px-4">
+              <p>&copy; {currentYear} Minha Receita. Todos os direitos reservados.</p>
+            </div>
+          </footer>
+        </main>
     </div>
   );
 }
+
+    
