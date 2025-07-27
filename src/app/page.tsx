@@ -98,7 +98,7 @@ export default function Home() {
           <p className="text-base md:text-lg text-primary mt-4 mb-4 max-w-4xl mx-auto font-normal">
             Imagine poder saborear doces incríveis, sem culpa, e ainda ter a chance de criar sua própria fonte de renda.
           </p>
-          <div className="max-w-sm mx-auto bg-gradient-to-b from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
+          <div className="max-w-sm mx-auto bg-gradient-to-r from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
             <div className="rounded-md overflow-hidden">
              <WistiaPlayer videoId="5xgv99ozmz" />
             </div>
@@ -147,22 +147,24 @@ export default function Home() {
           <section className="py-12 md:py-16 bg-white">
             <div className="container mx-auto px-4">
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <Image 
-                  src="https://i.imgur.com/WBtdvhJ.jpeg"
-                  alt="Mulher feliz mostrando um doce saudável que ela fez"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                  data-ai-hint="woman showing food"
-                />
-                 <Image 
-                  src="https://i.imgur.com/qngt4kS.jpeg"
-                  alt="Deliciosos brownies sem glúten em uma travessa"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                  data-ai-hint="delicious brownies"
-                />
+                <div className="w-full aspect-video relative">
+                  <Image 
+                    src="https://i.imgur.com/WBtdvhJ.jpeg"
+                    alt="Mulher feliz mostrando um doce saudável que ela fez"
+                    fill
+                    className="rounded-lg shadow-xl object-cover"
+                    data-ai-hint="woman showing food"
+                  />
+                </div>
+                <div className="w-full aspect-video relative">
+                   <Image 
+                    src="https://i.imgur.com/qngt4kS.jpeg"
+                    alt="Deliciosos brownies sem glúten em uma travessa"
+                    fill
+                    className="rounded-lg shadow-xl object-cover"
+                    data-ai-hint="delicious brownies"
+                  />
+                </div>
               </div>
             </div>
           </section>
