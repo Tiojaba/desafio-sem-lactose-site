@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, ShieldCheck, Heart } from 'lucide-react';
@@ -24,7 +24,6 @@ const WistiaPlayer = ({ videoId, onTriggerOffer }: { videoId: string, onTriggerO
     window._wq.push({
       id: videoId,
       onReady: (video: any) => {
-        // Function to check time and trigger offer
         const checkTime = (currentTime: number) => {
           const duration = video.duration();
           if (!triggered && duration > 10 && currentTime >= duration - 10) {
@@ -33,20 +32,17 @@ const WistiaPlayer = ({ videoId, onTriggerOffer }: { videoId: string, onTriggerO
           }
         };
 
-        // Bind to timechange to trigger before the end
         video.bind('timechange', checkTime);
 
-        // Bind to end as a fallback
         video.bind('end', () => {
           if (!triggered) {
             onTriggerOffer();
           }
-          return video.unbind; // Cleanup on end
+          return video.unbind;
         });
       },
     });
 
-    // Cleanup function to unbind events if component unmounts
     return () => {
       window._wq = window._wq || [];
       window._wq.push({
@@ -71,7 +67,7 @@ const WistiaPlayer = ({ videoId, onTriggerOffer }: { videoId: string, onTriggerO
   const wrapperStyle = {
     height: 0,
     overflow: "hidden" as "hidden",
-    paddingBottom: "177.77777777777777%", // 9:16 aspect ratio
+    paddingBottom: "177.77777777777777%",
     position: "relative" as "relative",
     width: "100%",
   }
@@ -229,3 +225,6 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+    
