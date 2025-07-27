@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, ShieldCheck, Heart, Users, Brain, HelpCircle } from 'lucide-react';
+import { CheckCircle, ShieldCheck, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { format } from 'date-fns';
@@ -93,10 +93,10 @@ export default function Home() {
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-3xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
-            CANSADO DE SOFRER COM INTOLERÂNCIAS ALIMENTARES?
+            Cansado de sofrer com intolerâncias alimentares?
           </h2>
           <p className="text-xl md:text-3xl font-bold text-primary mt-4 mb-8 max-w-4xl mx-auto">
-            DESCUBRA O SABOR SEM CULPA E AINDA FAÇA UMA RENDA EXTRA!
+            Descubra o sabor sem culpa e ainda faça uma renda extra!
           </p>
           <div className="max-w-md mx-auto bg-black rounded-lg shadow-2xl overflow-hidden">
              <WistiaPlayer videoId="5xgv99ozmz" />
@@ -130,8 +130,8 @@ export default function Home() {
                         <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
                           <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDate}!</p>
                         </div>
-                         <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-6 md:py-8 px-8 md:px-12 rounded-lg shadow-lg w-full md:w-auto h-auto">
-                            QUERO MINHA LIBERDADE E MINHA RENDA EXTRA AGORA!
+                         <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
+                            QUERO MINHA LIBERDADE <br/> E MINHA RENDA EXTRA AGORA!
                         </Button>
                     </div>
 
@@ -235,5 +235,5 @@ export default function Home() {
       </footer>
     </div>
   );
-}
 
+    
