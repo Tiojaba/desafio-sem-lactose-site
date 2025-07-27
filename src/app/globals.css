@@ -4,63 +4,63 @@
 
 @layer base {
   :root {
-    --background: 153 50% 20%; /* Deep forest green */
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%; /* White */
+    --foreground: 240 10% 3.9%; /* Dark Gray */
 
-    --card: 153 50% 23%; /* Slightly lighter green for cards */
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 153 50% 18%; /* Darker for popovers */
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 98 52% 77%; /* Fresh mint green */
-    --primary-foreground: 153 50% 10%; /* Very dark green for contrast */
+    --primary: 336 84% 60%; /* Vibrant Pink - #FF6496 */
+    --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 153 30% 30%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 328 100% 29%; /* Wine/Darker Pink - #960050 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 153 30% 25%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 35 78% 57%; /* Warm yellow-orange */
-    --accent-foreground: 153 50% 10%; /* Very dark green for contrast */
+    --accent: 0 50% 95%; /* Soft Pink for backgrounds/accents - #FFC8C8 related */
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 98 52% 77%;
-    --input: 153 50% 25%;
-    --ring: 35 78% 57%; /* Accent color for rings */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 336 84% 60%;
     
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 153 50% 20%;
+    --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 153 50% 23%;
+    --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 153 50% 18%;
+    --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 98 52% 77%;
-    --primary-foreground: 153 50% 10%;
-    --secondary: 153 30% 30%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 153 30% 25%;
+    --primary: 336 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 328 100% 29%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 3.7% 15.9%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 35 78% 57%;
-    --accent-foreground: 153 50% 10%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 98 52% 77%;
-    --input: 153 50% 25%;
-    --ring: 35 78% 57%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 336 84% 60%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border/50;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;

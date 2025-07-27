@@ -1,133 +1,165 @@
-
 "use client";
 
-import { useState } from 'react';
-import type { SuggestRecipesOutput, SuggestRecipesInput } from '@/ai/flows/suggest-recipes';
-import { suggestRecipes } from '@/ai/flows/suggest-recipes';
-import RecipeForm from '@/components/recipe-form';
-import RecipeList from '@/components/recipe-list';
-import { useToast } from "@/hooks/use-toast";
-import { ChefHat, CookingPot, Leaf, BrainCircuit } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CheckCircle, ShieldCheck, Heart } from 'lucide-react';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
-  const [recipesOutput, setRecipesOutput] = useState<SuggestRecipesOutput | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
+  const [showOffer, setShowOffer] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleSuggestRecipes = async (data: SuggestRecipesInput) => {
-    setIsLoading(true);
-    setRecipesOutput(null);
-    try {
-      const result = await suggestRecipes(data);
-      if (!result.recipes || result.recipes.length === 0) {
-        toast({
-          title: "Nenhuma receita encontrada",
-          description: "Tente ingredientes diferentes ou verifique se há erros de digitação.",
-          variant: "default",
-        });
-      }
-      setRecipesOutput(result);
-    } catch (error) {
-      console.error(error);
-      toast({
-        title: "Erro ao sugerir receitas",
-        description: "Houve um problema ao se comunicar com a IA. Por favor, tente novamente mais tarde.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+  const handleVideoEnd = () => {
+    setShowOffer(true);
   };
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.addEventListener('ended', handleVideoEnd);
+      return () => {
+        video.removeEventListener('ended', handleVideoEnd);
+      };
+    }
+  }, [videoRef]);
+
+  const testimonials = [
+    {
+      name: "Ana Silva",
+      text: "Eu achava que nunca mais ia comer um bolo gostoso! As receitas são maravilhosas e fáceis. Já estou até vendendo para as amigas!",
+      image: "https://placehold.co/100x100.png",
+      hint: "woman smiling"
+    },
+    {
+      name: "Carlos Pereira",
+      text: "O guia 'Minha Receita' mudou minha vida. Além de comer sem medo, comecei um pequeno negócio de doces fit. Estou muito feliz!",
+      image: "https://placehold.co/100x100.png",
+      hint: "man happy"
+    },
+    {
+      name: "Juliana Costa",
+      text: "Minha filha tem várias restrições e eu não sabia mais o que fazer. Agora temos lanches deliciosos e seguros todos os dias. Obrigada!",
+      image: "https://placehold.co/100x100.png",
+      hint: "woman child"
+    },
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="w-full py-20 md:py-32 bg-card/50 border-b border-primary/10">
+    <div className="flex flex-col min-h-screen bg-white">
+      {/* Header */}
+      <header className="py-4 text-center bg-gradient-to-b from-[#FFC8C8] to-[#FF9696]/50">
+          <h1 className="text-3xl font-bold text-secondary">Minha Receita</h1>
+      </header>
+
+      {/* Hero Section (VSL) */}
+      <section className="w-full py-12 md:py-20 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
-          <div className="inline-flex items-center gap-4 mb-6">
-            <ChefHat className="w-14 h-14 text-primary" />
-             <h1 className="text-5xl md:text-7xl font-headline text-primary">Doces Zero Lactose</h1>
-          </div>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-foreground/80 font-body mb-8">
-            Aprenda a criar sobremesas incríveis e nunca mais deixe quem você ama passar vontade. Transforme sua paixão em uma fonte de renda extra!
+          <h2 className="text-3xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
+            Cansado de sofrer com intolerâncias alimentares?
+          </h2>
+          <p className="text-xl md:text-3xl font-bold text-primary mt-2 mb-8 max-w-4xl mx-auto">
+            Descobrir o sabor sem culpa e ainda fazer uma renda extra nunca foi tão fácil!
           </p>
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg py-7 px-10 rounded-lg" onClick={() => document.getElementById('recipe-form-section')?.scrollIntoView({ behavior: 'smooth' })}>
-            Quero Aprender Agora
-          </Button>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="w-full py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-headline text-center text-primary mb-12">Recursos Incríveis</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center p-6 bg-card rounded-xl shadow-lg border border-primary/10">
-              <BrainCircuit className="w-12 h-12 text-accent mb-4" />
-              <h3 className="text-2xl font-headline text-primary mb-2">IA Inteligente</h3>
-              <p className="text-foreground/80 font-body">Sugestões de receitas que realmente combinam com seus ingredientes.</p>
-            </div>
-            <div className="flex flex-col items-center p-6 bg-card rounded-xl shadow-lg border border-primary/10">
-              <CookingPot className="w-12 h-12 text-accent mb-4" />
-              <h3 className="text-2xl font-headline text-primary mb-2">Variedade de Pratos</h3>
-              <p className="text-foreground/80 font-body">Do trivial ao gourmet, encontre a receita perfeita para qualquer ocasião.</p>
-            </div>
-            <div className="flex flex-col items-center p-6 bg-card rounded-xl shadow-lg border border-primary/10">
-              <Leaf className="w-12 h-12 text-accent mb-4" />
-              <h3 className="text-2xl font-headline text-primary mb-2">Filtros Alimentares</h3>
-              <p className="text-foreground/80 font-body">Receitas vegetarianas, veganas, sem glúten e muito mais.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* How it Works Section */}
-      <section className="w-full py-16 md:py-24 bg-card/50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-headline text-center text-primary mb-12">Como Funciona</h2>
-          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center font-body">
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 mb-4 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-4xl font-bold">1</div>
-              <h3 className="text-xl font-headline text-primary mb-2">Liste seus Ingredientes</h3>
-              <p className="text-foreground/80">Nos diga o que você tem na sua geladeira e despensa.</p>
-            </div>
-            <div className="flex flex-col items-center">
-             <div className="w-24 h-24 mb-4 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-4xl font-bold">2</div>
-              <h3 className="text-xl font-headline text-primary mb-2">Receba as Sugestões</h3>
-              <p className="text-foreground/80">Nossa IA irá gerar 3 opções de receitas criativas para você.</p>
-            </div>
-            <div className="flex flex-col items-center">
-               <div className="w-24 h-24 mb-4 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-4xl font-bold">3</div>
-              <h3 className="text-xl font-headline text-primary mb-2">Cozinhe e Aproveite</h3>
-              <p className="text-foreground/80">Siga o passo a passo e desfrute de uma refeição deliciosa.</p>
-            </div>
+          <div className="max-w-4xl mx-auto bg-black rounded-lg shadow-2xl overflow-hidden aspect-video">
+             {/* Placeholder for VSL */}
+             <video
+              ref={videoRef}
+              className="w-full h-full"
+              controls
+              poster="https://placehold.co/1280x720.png?text=Assista+ao+V%C3%ADdeo"
+              data-ai-hint="cooking video"
+            >
+              {/* <source src="/path/to/your/video.mp4" type="video/mp4" /> */}
+              Seu navegador não suporta o player de vídeo.
+            </video>
           </div>
         </div>
       </section>
 
-      {/* Recipe Form Section */}
-      <section id="recipe-form-section" className="w-full py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-headline text-primary">Pronto para Cozinhar?</h2>
-            <p className="text-lg text-foreground/80 mt-2">Insira seus ingredientes abaixo e deixe a mágica acontecer!</p>
-          </div>
-          <div className="max-w-2xl mx-auto bg-card p-6 sm:p-8 rounded-xl shadow-2xl border border-primary/10">
-            <RecipeForm onSubmit={handleSuggestRecipes} isLoading={isLoading} />
-          </div>
-        </div>
-      </section>
+      {/* Offer Section (Shows after video ends) */}
+      <div className={cn("transition-all duration-700 ease-in-out", showOffer ? "opacity-100 max-h-full" : "opacity-0 max-h-0 overflow-hidden")}>
+          <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
+            <div className="container mx-auto px-4 text-center">
+                <p className="text-xl md:text-2xl font-semibold text-secondary mb-8">
+                  Como você viu no vídeo da Isabella, essa jornada é possível para você também!
+                </p>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-secondary">Apresento a você o guia completo</h2>
+                <h1 className="text-4xl md:text-5xl font-bold text-primary mt-2 mb-10">Minha Receita: Doces e Delícias Sem Culpa e com Lucro!</h1>
 
-      {/* Recipe List Section */}
-      <main className="flex-grow container mx-auto px-4 md:px-8">
-        <RecipeList recipes={recipesOutput?.recipes ?? []} isLoading={isLoading} />
-      </main>
+                <div className="max-w-4xl mx-auto text-left space-y-8">
+                    <Card className="bg-white shadow-lg border-primary/20">
+                        <CardHeader>
+                            <CardTitle className="text-secondary text-2xl flex items-center gap-2"><Heart className="text-primary"/>Os Benefícios em Detalhe</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4 text-lg text-gray-700">
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Liberdade para comer:</strong> Receitas deliciosas sem lactose, glúten e açúcar.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Renda Extra:</strong> Aprenda a precificar e vender seus produtos.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Saúde e Sabor:</strong> Ingredientes saudáveis que não sacrificam o paladar.</span></p>
+                           <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Para toda a família:</strong> Agradam a todos, com ou sem restrições.</span></p>
+                        </CardContent>
+                    </Card>
 
-      <footer className="w-full py-6 mt-16 bg-card/50">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} ReceitaFácil. Todos os direitos reservados.</p>
-           <p className="text-sm mt-2">Criado com ❤️ usando Next.js e Genkit.</p>
+                    <div className="text-center py-8">
+                        <h3 className="text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
+                        <p className="text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
+                         <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-xl py-8 px-12 rounded-lg shadow-lg w-full md:w-auto">
+                            QUERO MINHA LIBERDADE E MINHA RENDA EXTRA AGORA!
+                        </Button>
+                    </div>
+
+                </div>
+            </div>
+          </section>
+
+          {/* Guarantee Section */}
+          <section className="w-full py-12 bg-[#FFC8C8]/50">
+            <div className="container mx-auto px-4">
+              <div className="max-w-2xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                  <ShieldCheck className="h-24 w-24 text-primary shrink-0"/>
+                  <div>
+                    <h3 className="text-2xl font-bold text-secondary">Garantia de Satisfação Incondicional de 7 Dias</h3>
+                    <p className="text-gray-700 mt-2">
+                        Seu risco é zero. Se por qualquer motivo você não amar o guia "Minha Receita", basta pedir seu dinheiro de volta em até 7 dias. Simples assim, sem perguntas.
+                    </p>
+                  </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Testimonials Section */}
+          <section className="py-12 md:py-20">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossos alunos estão dizendo</h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {testimonials.map((testimonial, index) => (
+                  <Card key={index} className="bg-white border-primary/20 shadow-xl text-center flex flex-col items-center">
+                    <CardHeader>
+                       <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={80}
+                          height={80}
+                          className="rounded-full border-4 border-primary"
+                          data-ai-hint={testimonial.hint}
+                        />
+                      <CardTitle className="text-secondary pt-2">{testimonial.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">"{testimonial.text}"</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+      </div>
+
+      {/* Footer */}
+      <footer className="w-full py-6 mt-auto bg-gray-100">
+        <div className="container mx-auto text-center text-gray-500">
+          <p>&copy; {new Date().getFullYear()} Minha Receita. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>

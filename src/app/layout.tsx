@@ -2,10 +2,16 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '900']
+});
 
 export const metadata: Metadata = {
-  title: 'ReceitaFacil',
-  description: 'Sugestões de receitas com IA baseadas nos seus ingredientes.',
+  title: 'Minha Receita',
+  description: 'Descubra o sabor sem culpa e ainda faça uma renda extra!',
 };
 
 export default function RootLayout({
@@ -14,13 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Belleza&display=swap" rel="stylesheet" />
-      </head>
-      <body className={cn("font-body antialiased", "min-h-screen bg-background text-foreground")}>
+    <html lang="pt-BR">
+      <body className={cn(poppins.className, "antialiased")}>
         {children}
         <Toaster />
       </body>
