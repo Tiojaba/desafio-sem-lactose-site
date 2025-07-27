@@ -17,19 +17,48 @@ declare global {
   }
 }
 
-const WistiaPlayer = ({ videoId, onVideoEnd }: { videoId: string, onVideoEnd: () => void }) => {
+const WistiaPlayer = ({ videoId, onTriggerOffer }: { videoId: string, onTriggerOffer: () => void }) => {
   useEffect(() => {
+    let triggered = false;
     window._wq = window._wq || [];
     window._wq.push({
       id: videoId,
       onReady: (video: any) => {
+        // Function to check time and trigger offer
+        const checkTime = (currentTime: number) => {
+          const duration = video.duration();
+          if (!triggered && duration > 10 && currentTime >= duration - 10) {
+            triggered = true;
+            onTriggerOffer();
+          }
+        };
+
+        // Bind to timechange to trigger before the end
+        video.bind('timechange', checkTime);
+
+        // Bind to end as a fallback
         video.bind('end', () => {
-          onVideoEnd();
-          return video.unbind; // Cleanup
+          if (!triggered) {
+            onTriggerOffer();
+          }
+          return video.unbind; // Cleanup on end
         });
       },
     });
-  }, [videoId, onVideoEnd]);
+
+    // Cleanup function to unbind events if component unmounts
+    return () => {
+      window._wq = window._wq || [];
+      window._wq.push({
+        id: videoId,
+        onReady: (video: any) => {
+          video.unbind('timechange');
+          video.unbind('end');
+        }
+      });
+    }
+
+  }, [videoId, onTriggerOffer]);
 
   const playerStyle = {
     height: "100%",
@@ -49,7 +78,7 @@ const WistiaPlayer = ({ videoId, onVideoEnd }: { videoId: string, onVideoEnd: ()
 
   return (
     <div style={wrapperStyle}>
-        <div className={`wistia_embed wistia_async_${videoId}`} style={playerStyle}>
+        <div className={`wistia_embed wistia_async_${videoId} videoFoam=true`} style={playerStyle}>
           &nbsp;
         </div>
     </div>
@@ -67,7 +96,7 @@ export default function Home() {
   }, []);
 
 
-  const handleVideoEnd = () => {
+  const handleTriggerOffer = () => {
     setShowOffer(true);
   };
 
@@ -106,7 +135,7 @@ export default function Home() {
             DESCUBRA O SABOR SEM CULPA E AINDA FAÇA UMA RENDA EXTRA!
           </p>
           <div className="max-w-md mx-auto bg-black rounded-lg shadow-2xl overflow-hidden">
-             <WistiaPlayer videoId="5xgv99ozmz" onVideoEnd={handleVideoEnd} />
+             <WistiaPlayer videoId="5xgv99ozmz" onTriggerOffer={handleTriggerOffer} />
           </div>
         </div>
       </section>
@@ -200,5 +229,3 @@ export default function Home() {
       </footer>
     </div>
   );
-
-    
