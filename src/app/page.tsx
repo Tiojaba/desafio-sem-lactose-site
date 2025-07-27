@@ -49,7 +49,7 @@ export default function Home() {
     {
       name: "Ana Silva",
       text: "Eu achava que nunca mais ia comer um bolo gostoso! As receitas são maravilhosas e fáceis. Já estou até vendendo para as amigas!",
-      image: "https://placehold.co/100x100.png",
+      image: "https://i.imgur.com/0eebaBM.jpeg",
       hint: "woman smiling"
     },
     {
