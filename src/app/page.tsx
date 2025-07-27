@@ -51,29 +51,36 @@ const SimpleCtaButton = ({ onScroll }: { onScroll: () => void }) => (
 );
 
 
-const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string, forwardedRef: React.Ref<HTMLDivElement>}) => (
-  <div className="text-center py-8" ref={forwardedRef}>
-      <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
-      <p className="text-4xl md:text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
-      <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
-        <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDate}!</p>
-      </div>
-      <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-        <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
-           <span className="text-center">
-            SIM, QUERO COMER BEM E GANHAR DINHEIRO!
-           </span>
-        </Button>
-      </a>
-  </div>
-);
+const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string | null, forwardedRef: React.Ref<HTMLDivElement>}) => {
+  if (!currentDate) {
+    return null; // Don't render until the date is set
+  }
+
+  return (
+    <div className="text-center py-8" ref={forwardedRef}>
+        <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
+        <p className="text-4xl md:text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
+        <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
+          <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDate}!</p>
+        </div>
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+          <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
+             <span className="text-center">
+              SIM, QUERO COMER BEM E GANHAR DINHEIRO!
+             </span>
+          </Button>
+        </a>
+    </div>
+  );
+};
 
 
 export default function Home() {
-  const [currentDate, setCurrentDate] = useState('');
+  const [currentDate, setCurrentDate] = useState<string | null>(null);
   const finalCtaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // This code runs only on the client, after the component mounts.
     const today = new Date();
     setCurrentDate(format(today, "d 'de' MMMM", { locale: ptBR }));
   }, []);
@@ -303,5 +310,4 @@ export default function Home() {
       </footer>
     </div>
   );
-
-    
+}
