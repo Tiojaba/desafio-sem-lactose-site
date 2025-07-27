@@ -64,11 +64,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* Header */}
-      <header className="py-4 text-center bg-gradient-to-b from-[#FFC8C8] to-[#FF9696]/50">
-          <h1 className="text-3xl font-bold text-secondary">Minha Receita</h1>
-      </header>
-
       {/* Hero Section (VSL) */}
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
