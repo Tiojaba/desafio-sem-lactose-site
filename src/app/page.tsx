@@ -6,10 +6,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, ShieldCheck, Heart } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+
 
 export default function Home() {
   const [showOffer, setShowOffer] = useState(false);
+  const [currentDate, setCurrentDate] = useState('');
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const today = new Date();
+    setCurrentDate(format(today, "d 'de' MMMM", { locale: ptBR }));
+  }, []);
+
 
   const handleVideoEnd = () => {
     setShowOffer(true);
@@ -110,6 +120,9 @@ export default function Home() {
                     <div className="text-center py-8">
                         <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
                         <p className="text-4xl md:text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
+                        <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
+                          <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDate}!</p>
+                        </div>
                          <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-6 md:py-8 px-8 md:px-12 rounded-lg shadow-lg w-full md:w-auto h-auto">
                             QUERO MINHA LIBERDADE E MINHA RENDA EXTRA AGORA!
                         </Button>
