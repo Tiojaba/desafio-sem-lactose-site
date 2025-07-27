@@ -51,11 +51,7 @@ const SimpleCtaButton = ({ onScroll }: { onScroll: () => void }) => (
 );
 
 
-const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string | null, forwardedRef: React.Ref<HTMLDivElement>}) => {
-  if (!currentDate) {
-    return null; // Don't render until the date is set
-  }
-
+const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string, forwardedRef: React.Ref<HTMLDivElement>}) => {
   return (
     <div className="text-center py-8" ref={forwardedRef}>
         <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
@@ -76,19 +72,21 @@ const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string | null
 
 
 export default function Home() {
-  const [currentDate, setCurrentDate] = useState<string | null>(null);
+  const [currentDate, setCurrentDate] = useState('');
+  const [isClient, setIsClient] = useState(false);
   const finalCtaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // This code runs only on the client, after the component mounts.
-    const today = new Date();
-    setCurrentDate(format(today, "d 'de' MMMM", { locale: ptBR }));
+    // This code runs only on the client, after the component has mounted.
+    // This prevents hydration errors.
+    setCurrentDate(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
+    setIsClient(true);
   }, []);
 
   const handleScrollToFinalCta = () => {
     finalCtaRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
+  
   const testimonials = [
     {
       name: "Ana Silva",
@@ -168,7 +166,8 @@ export default function Home() {
         </div>
       </section>
 
-      <SimpleCtaButton onScroll={handleScrollToFinalCta} />
+      {isClient && <SimpleCtaButton onScroll={handleScrollToFinalCta} />}
+
 
       {/* Pain Point 2: Lack of Money */}
       <section className="w-full py-12 md:py-16 bg-gray-50">
@@ -187,8 +186,8 @@ export default function Home() {
             </Card>
         </div>
       </section>
-
-      <SimpleCtaButton onScroll={handleScrollToFinalCta} />
+      
+      {isClient && <SimpleCtaButton onScroll={handleScrollToFinalCta} />}
 
       {/* Solution Section */}
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
@@ -235,7 +234,7 @@ export default function Home() {
         </div>
       </section>
       
-      <FinalCtaButton currentDate={currentDate} forwardedRef={finalCtaRef} />
+      {isClient && currentDate && <FinalCtaButton currentDate={currentDate} forwardedRef={finalCtaRef} />}
 
       {/* Guarantee Section */}
       <section className="w-full py-12 bg-[#FFC8C8]/50">
