@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, ShieldCheck, Heart, Frown, DollarSign, XCircle, Loader } from 'lucide-react';
+import { CheckCircle, ShieldCheck, Heart, Frown, DollarSign, XCircle } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { format } from 'date-fns';
@@ -38,47 +38,14 @@ const WistiaPlayer = dynamic(() => Promise.resolve(({ videoId }: { videoId: stri
 }), { ssr: false });
 
 
-const SimpleCtaButton = ({ onClick }: { onClick: () => void }) => (
-    <div className="text-center py-8">
-      <Button 
-          size="lg" 
-          className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
-          onClick={onClick}
-      >
-          <span className="text-center">
-              SIM, QUERO RESOLVER ISSO!
-          </span>
-      </Button>
-    </div>
-);
-
-
-const FinalCtaButton = ({currentDateText}: {currentDateText: string}) => {
-  return (
-    <div className="text-center py-8">
-        <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
-        <p className="text-4xl md:text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
-        <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
-          <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDateText}!</p>
-        </div>
-        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-          <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
-             <span className="text-center">
-              SIM, QUERO COMER BEM E GANHAR DINHEIRO!
-             </span>
-          </Button>
-        </a>
-    </div>
-  );
-};
-
-
 export default function Home() {
   const finalCtaRef = useRef<HTMLDivElement>(null);
   const [currentDateText, setCurrentDateText] = useState("...");
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    setIsClient(true);
     setCurrentDateText(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
     setCurrentYear(new Date().getFullYear());
   }, []);
@@ -127,6 +94,10 @@ export default function Home() {
     }
   ];
 
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
@@ -166,7 +137,17 @@ export default function Home() {
             </div>
           </section>
 
-          <SimpleCtaButton onClick={handleScrollToFinalCta} />
+           <div className="text-center py-8">
+              <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
+                  onClick={handleScrollToFinalCta}
+              >
+                  <span className="text-center">
+                      SIM, QUERO RESOLVER ISSO!
+                  </span>
+              </Button>
+            </div>
 
           <section className="w-full py-12 md:py-16 bg-gray-50">
             <div className="container mx-auto px-4 max-w-4xl">
@@ -185,7 +166,17 @@ export default function Home() {
             </div>
           </section>
           
-          <SimpleCtaButton onClick={handleScrollToFinalCta} />
+           <div className="text-center py-8">
+              <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
+                  onClick={handleScrollToFinalCta}
+              >
+                  <span className="text-center">
+                      SIM, QUERO RESOLVER ISSO!
+                  </span>
+              </Button>
+            </div>
 
           <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
             <div className="container mx-auto px-4 text-center">
@@ -231,8 +222,19 @@ export default function Home() {
             </div>
           </section>
       
-          <div ref={finalCtaRef}>
-            <FinalCtaButton currentDateText={currentDateText} />
+          <div ref={finalCtaRef} className="text-center py-8">
+              <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
+              <p className="text-4xl md:text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
+              <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
+                <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDateText}!</p>
+              </div>
+              <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
+                   <span className="text-center">
+                    SIM, QUERO COMER BEM E GANHAR DINHEIRO!
+                   </span>
+                </Button>
+              </a>
           </div>
           
           <section className="w-full py-12 bg-[#FFC8C8]/50">
@@ -307,5 +309,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
