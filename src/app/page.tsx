@@ -36,17 +36,18 @@ const WistiaPlayer = ({ videoId }: { videoId: string }) => {
   );
 };
 
-const SimpleCtaButton = ({ onClick }: { onClick: () => void }) => (
+const SimpleCtaButton = () => (
     <div className="text-center py-8">
+      <a href="https://google.com" target="_blank" rel="noopener noreferrer">
         <Button 
             size="lg" 
             className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
-            onClick={onClick}
         >
             <span className="text-center">
                 SIM, QUERO RESOLVER ISSO!
             </span>
         </Button>
+      </a>
     </div>
 );
 
@@ -58,11 +59,13 @@ const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string, forwa
       <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
         <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDate}!</p>
       </div>
-      <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
-         <span className="text-center">
-          SIM, QUERO COMER BEM E GANHAR DINHEIRO!
-         </span>
-      </Button>
+      <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+        <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
+           <span className="text-center">
+            SIM, QUERO COMER BEM E GANHAR DINHEIRO!
+           </span>
+        </Button>
+      </a>
   </div>
 );
 
@@ -70,10 +73,6 @@ const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string, forwa
 export default function Home() {
   const [currentDate, setCurrentDate] = useState('');
   const finalCtaRef = useRef<HTMLDivElement>(null);
-
-  const handleScrollToOffer = () => {
-    finalCtaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
 
   useEffect(() => {
     const today = new Date();
@@ -159,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      <SimpleCtaButton onClick={handleScrollToOffer} />
+      <SimpleCtaButton />
 
       {/* Pain Point 2: Lack of Money */}
       <section className="w-full py-12 md:py-16 bg-gray-50">
@@ -179,7 +178,7 @@ export default function Home() {
         </div>
       </section>
 
-      <SimpleCtaButton onClick={handleScrollToOffer} />
+      <SimpleCtaButton />
 
       {/* Solution Section */}
       <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
@@ -302,3 +301,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
