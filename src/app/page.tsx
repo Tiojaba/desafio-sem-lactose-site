@@ -47,13 +47,13 @@ export default function Home() {
         <div className="container mx-auto text-center px-4">
           <div className="inline-flex items-center gap-4 mb-6">
             <ChefHat className="w-14 h-14 text-primary" />
-            <h1 className="text-5xl md:text-7xl font-headline text-primary">ReceitaFácil</h1>
+             <h1 className="text-5xl md:text-7xl font-headline text-primary">Doces Zero Lactose</h1>
           </div>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-foreground/80 font-body mb-8">
-            Transforme os ingredientes que você tem em casa em pratos incríveis. Nossa IA cria receitas personalizadas para você em segundos.
+            Aprenda a criar sobremesas incríveis e nunca mais deixe quem você ama passar vontade. Transforme sua paixão em uma fonte de renda extra!
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg py-7 px-10 rounded-lg" onClick={() => document.getElementById('recipe-form-section')?.scrollIntoView({ behavior: 'smooth' })}>
-            Começar Agora
+            Quero Aprender Agora
           </Button>
         </div>
       </section>
