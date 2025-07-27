@@ -149,19 +149,19 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <Image 
                   src="https://i.imgur.com/WBtdvhJ.jpeg"
-                  alt="Família feliz cozinhando junto"
+                  alt="Mulher feliz mostrando um doce saudável que ela fez"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-xl"
-                  data-ai-hint="happy family cooking"
+                  data-ai-hint="woman showing food"
                 />
                  <Image 
-                  src="https://placehold.co/600x400.png"
-                  alt="Crianças comendo doces saudáveis e sorrindo"
+                  src="https://i.imgur.com/qngt4kS.jpeg"
+                  alt="Deliciosos brownies sem glúten em uma travessa"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-xl"
-                  data-ai-hint="children eating healthy"
+                  data-ai-hint="delicious brownies"
                 />
               </div>
             </div>
@@ -242,5 +242,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
