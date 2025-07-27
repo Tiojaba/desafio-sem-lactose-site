@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, ShieldCheck, Heart, Frown, DollarSign } from 'lucide-react';
+import { CheckCircle, ShieldCheck, Heart, Frown, DollarSign, XCircle } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { format } from 'date-fns';
@@ -150,9 +150,10 @@ export default function Home() {
                         <Frown className="text-primary h-8 w-8"/> Você se sente frustrada com suas restrições alimentares?
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 text-base md:text-lg text-gray-700 text-center">
-                   <p>É horrível ver todo mundo comendo coisas gostosas em festas e encontros, e você ter que ficar só olhando, com medo de passar mal. Aquele bolo de aniversário, o docinho depois do almoço... Parecem prazeres proibidos. </p>
-                   <p>Você já se cansou de ler rótulos, de ter que explicar suas restrições e, muitas vezes, de comer coisas sem graça só por segurança.</p>
+                <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
+                  <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>É horrível ir a festas e ver todo mundo comendo bolos e doces, enquanto você fica só olhando com medo de passar mal.</span></p>
+                  <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você já se cansou de ter que ler cada rótulo no mercado e de ter que ficar explicando suas restrições para as pessoas.</span></p>
+                  <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A alegria de comer um docinho depois do almoço parece um luxo proibido, e muitas vezes você acaba comendo coisas sem graça só por segurança.</span></p>
                 </CardContent>
             </Card>
         </div>
@@ -169,9 +170,10 @@ export default function Home() {
                         <DollarSign className="text-primary h-8 w-8"/> A falta de dinheiro te impede de realizar seus sonhos?
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 text-base md:text-lg text-gray-700 text-center">
-                   <p>As contas não esperam, e parece que o dinheiro nunca é suficiente para dar uma vida mais confortável para sua família, fazer aquela viagem ou simplesmente ter uma reserva para emergências. </p>
-                   <p>A ideia de depender sempre dos outros ou de um emprego que não te valoriza é desgastante. Você sonha com a liberdade de ter sua própria renda, fazendo algo que ama.</p>
+                <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
+                    <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>As contas chegam todo mês e parece que o dinheiro nunca é suficiente para dar mais conforto à sua família ou realizar seus próprios sonhos.</span></p>
+                    <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A ideia de depender de um emprego que não te valoriza ou de não ter sua própria renda para fazer suas coisas é desgastante e te deixa insegura.</span></p>
+                    <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você sonha com a liberdade de ter seu próprio dinheiro, fazendo algo que você ama e que ainda te permite ficar mais perto de quem você ama.</span></p>
                 </CardContent>
             </Card>
         </div>
