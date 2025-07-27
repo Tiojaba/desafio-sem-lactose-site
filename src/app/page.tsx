@@ -72,14 +72,10 @@ const FinalCtaButton = ({currentDate, forwardedRef}: {currentDate: string, forwa
 
 
 export default function Home() {
-  const [currentDate, setCurrentDate] = useState('');
   const [isClient, setIsClient] = useState(false);
   const finalCtaRef = useRef<HTMLDivElement>(null);
-
+  
   useEffect(() => {
-    // This code runs only on the client, after the component has mounted.
-    // This prevents hydration errors.
-    setCurrentDate(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
     setIsClient(true);
   }, []);
 
@@ -126,6 +122,8 @@ export default function Home() {
       answer: "Sim! Ao adquirir o guia 'Minha Receita', você terá acesso ilimitado a todo o material para sempre, incluindo futuras atualizações, para consultar quando quiser."
     }
   ];
+
+  const currentDate = isClient ? format(new Date(), "d 'de' MMMM", { locale: ptBR }) : '';
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
