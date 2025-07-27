@@ -90,12 +90,12 @@ export default function Home() {
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="beforeInteractive" />
       
       {/* Hero Section (VSL) */}
-      <section className="w-full py-8 md:py-16 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
+      <section className="w-full py-8 md:py-12 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
-          <h2 className="text-2xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
             Cansado de sofrer com intolerâncias alimentares?
           </h2>
-          <p className="text-lg md:text-3xl font-bold text-primary mt-3 mb-6 max-w-4xl mx-auto">
+          <p className="text-lg md:text-2xl font-bold text-primary mt-2 mb-6 max-w-4xl mx-auto">
             Descubra o sabor sem culpa e ainda faça uma renda extra!
           </p>
           <div className="max-w-md mx-auto bg-black rounded-lg shadow-2xl overflow-hidden">
@@ -184,8 +184,8 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossos alunos estão dizendo</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {testimonials.map((testimonial, index) => (
-                  <Card key={index} className="bg-white border-primary/20 shadow-xl text-center flex flex-col items-center">
-                    <CardHeader>
+                  <Card key={index} className="bg-white border-primary/20 shadow-xl text-center flex flex-col">
+                    <CardHeader className="items-center">
                        <Image
                           src={testimonial.image}
                           alt={testimonial.name}
@@ -235,3 +235,4 @@ export default function Home() {
       </footer>
     </div>
   );
+}
