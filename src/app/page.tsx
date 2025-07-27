@@ -98,7 +98,7 @@ export default function Home() {
           <p className="text-lg md:text-2xl font-bold text-primary mt-2 mb-4 max-w-4xl mx-auto">
             Descubra o sabor sem culpa e ainda faça uma renda extra!
           </p>
-          <div className="max-w-sm mx-auto bg-gradient-to-b from-primary to-[#FF9696] p-2 rounded-lg shadow-2xl">
+          <div className="max-w-sm mx-auto bg-gradient-to-b from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl">
             <WistiaPlayer videoId="5xgv99ozmz" />
           </div>
         </div>
