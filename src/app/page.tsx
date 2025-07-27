@@ -7,55 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, ShieldCheck, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
-import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
-declare global {
-  interface Window {
-    _wq: any[];
-  }
-}
-
-const WistiaPlayer = ({ videoId, onTriggerOffer }: { videoId: string, onTriggerOffer: () => void }) => {
-  useEffect(() => {
-    let triggered = false;
-    window._wq = window._wq || [];
-    window._wq.push({
-      id: videoId,
-      onReady: (video: any) => {
-        const checkTime = (currentTime: number) => {
-          const duration = video.duration();
-          if (!triggered && duration > 10 && currentTime >= duration - 10) {
-            triggered = true;
-            onTriggerOffer();
-          }
-        };
-
-        video.bind('timechange', checkTime);
-
-        video.bind('end', () => {
-          if (!triggered) {
-            onTriggerOffer();
-          }
-          return video.unbind;
-        });
-      },
-    });
-
-    return () => {
-      window._wq = window._wq || [];
-      window._wq.push({
-        id: videoId,
-        onReady: (video: any) => {
-          video.unbind('timechange');
-          video.unbind('end');
-        }
-      });
-    }
-
-  }, [videoId, onTriggerOffer]);
-
+const WistiaPlayer = ({ videoId }: { videoId: string }) => {
   const playerStyle = {
     height: "100%",
     position: "absolute" as "absolute",
@@ -65,15 +20,14 @@ const WistiaPlayer = ({ videoId, onTriggerOffer }: { videoId: string, onTriggerO
   };
 
   const wrapperStyle = {
-    height: 0,
-    overflow: "hidden" as "hidden",
-    paddingBottom: "177.77777777777777%",
+    height: "100%",
+    paddingBottom: "177.77%", // 9:16 aspect ratio
     position: "relative" as "relative",
     width: "100%",
   }
 
   return (
-    <div style={wrapperStyle}>
+    <div style={wrapperStyle} className="w-full h-full">
         <div className={`wistia_embed wistia_async_${videoId} videoFoam=true`} style={playerStyle}>
           &nbsp;
         </div>
@@ -83,18 +37,12 @@ const WistiaPlayer = ({ videoId, onTriggerOffer }: { videoId: string, onTriggerO
 
 
 export default function Home() {
-  const [showOffer, setShowOffer] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
 
   useEffect(() => {
     const today = new Date();
     setCurrentDate(format(today, "d 'de' MMMM", { locale: ptBR }));
   }, []);
-
-
-  const handleTriggerOffer = () => {
-    setShowOffer(true);
-  };
 
   const testimonials = [
     {
@@ -131,13 +79,13 @@ export default function Home() {
             DESCUBRA O SABOR SEM CULPA E AINDA FAÇA UMA RENDA EXTRA!
           </p>
           <div className="max-w-md mx-auto bg-black rounded-lg shadow-2xl overflow-hidden">
-             <WistiaPlayer videoId="5xgv99ozmz" onTriggerOffer={handleTriggerOffer} />
+             <WistiaPlayer videoId="5xgv99ozmz" />
           </div>
         </div>
       </section>
 
-      {/* Offer Section (Shows after video ends) */}
-      <div className={cn("transition-all duration-700 ease-in-out", showOffer ? "opacity-100 max-h-[9999px]" : "opacity-0 max-h-0 overflow-hidden")}>
+      {/* Offer Section */}
+      <div className="transition-all duration-700 ease-in-out">
           <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
             <div className="container mx-auto px-4 text-center">
                 <p className="text-lg md:text-2xl font-semibold text-secondary mb-8 max-w-3xl mx-auto">
@@ -226,5 +174,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
