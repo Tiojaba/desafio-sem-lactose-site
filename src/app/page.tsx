@@ -127,7 +127,7 @@ export default function Home() {
       <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="beforeInteractive" />
       
       {/* Hero Section (Headline + VSL) */}
-      <section className="w-full py-6 md:py-8 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
+      <section className="w-full min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-4xl md:text-5xl font-extrabold text-secondary uppercase tracking-tight max-w-4xl mx-auto">
             Cansada de não poder comer o que gosta e de se preocupar com dinheiro?
@@ -149,7 +149,7 @@ export default function Home() {
             <Card className="bg-white shadow-lg border-red-200/50">
                 <CardHeader>
                     <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                        <Frown className="text-primary h-10 w-10"/> Você se sente frustrada com suas restrições alimentares?
+                        <Frown className="text-primary h-12 w-12"/> Você se sente frustrada com suas restrições alimentares?
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
@@ -169,7 +169,7 @@ export default function Home() {
             <Card className="bg-white shadow-lg border-yellow-300/50">
                 <CardHeader>
                     <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                        <DollarSign className="text-primary h-10 w-10"/> A falta de dinheiro te impede de realizar seus sonhos?
+                        <DollarSign className="text-primary h-12 w-12"/> A falta de dinheiro te impede de realizar seus sonhos?
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
@@ -303,4 +303,5 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+
+    
