@@ -53,14 +53,14 @@ export default function Home() {
       hint: "woman smiling"
     },
     {
-      name: "Carlos Pereira",
-      text: "O guia 'Minha Receita' mudou minha vida. Além de comer sem medo, comecei um pequeno negócio de doces fit. Estou muito feliz!",
+      name: "Mariana Lima",
+      text: "Esse guia mudou minha vida! Voltei a comer sem medo e ainda comecei um pequeno negócio com os doces. Muito, muito feliz e grata!",
       image: "https://i.imgur.com/m03wbdO.jpeg",
       hint: "man happy"
     },
     {
       name: "Juliana Costa",
-      text: "Minha filha tem várias restrições e eu não sabia mais o que fazer. Agora temos lanches deliciosos e seguros todos os dias. Obrigada!",
+      text: "Minha filha tem várias restrições e eu não sabia mais o que fazer. Encontrar essas receitas foi um alívio. Nossos lanches agora são deliciosos e seguros. Obrigada de coração!",
       image: "https://i.imgur.com/Gukp7FS.jpeg",
       hint: "woman child"
     },
