@@ -53,7 +53,7 @@ export default function Home() {
         <section id="home" className="w-full py-12 md:py-20 bg-gradient-to-b from-accent/50 to-background text-center">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto mb-8">
-              DESAFIO 7 DIAS SEM LACTOSE: Sabor, Leveza e Liberdade na Sua Mesa!
+              DESAFIO 7 DIAS SEM LACTOSE: <span className="bg-primary/20 text-primary-darker font-bold px-2 py-1 rounded-md">Sabor, Leveza e Liberdade</span> na Sua Mesa!
             </h1>
              <Image 
               src="https://placehold.co/600x400.png" 
@@ -64,7 +64,7 @@ export default function Home() {
               data-ai-hint="healthy food vibrant"
             />
             <p className="text-md sm:text-lg text-foreground/80 mt-4 max-w-2xl mx-auto">
-              Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, comendo com prazer!
+              Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, <span className="text-primary font-semibold">comendo com prazer!</span>
             </p>
             <a href="#cta">
               <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
@@ -86,16 +86,16 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="text-lg md:text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais leveza e confiança.</p>
+            <p className="text-lg md:text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais <span className="bg-primary/20 px-2 rounded-md">leveza e confiança.</span></p>
           </div>
         </section>
         
         {/* Apresentando o Desafio Section */}
         <section className="w-full py-12 md:py-20 bg-background text-center">
             <div className="container mx-auto px-4 max-w-4xl">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Apresentando o Desafio: Uma Jornada de 7 Dias para sua Liberdade Alimentar</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Apresentando o Desafio: Uma Jornada de 7 Dias para sua <span className="text-primary">Liberdade Alimentar</span></h2>
                 <p className="text-md md:text-lg text-foreground/80 mb-8 max-w-3xl mx-auto">
-                Imagine uma semana inteira sem desconforto, sem se preocupar com o que comer e, o melhor de tudo, redescobrindo o prazer de pratos deliciosos que você achou que nunca mais poderia provar. Esse é o "Desafio 7 Dias Sem Lactose". Não é apenas uma dieta, é um plano de ação completo, criado para te guiar, passo a passo, em uma transformação real. Vamos te mostrar como a vida sem lactose pode ser surpreendentemente fácil, saborosa e libertadora.
+                Imagine uma semana inteira sem desconforto, sem se preocupar com o que comer e, o melhor de tudo, redescobrindo o prazer de pratos deliciosos que você achou que nunca mais poderia provar. Esse é o "Desafio 7 Dias Sem Lactose". Não é apenas uma dieta, é um <span className="font-semibold text-primary">plano de ação completo</span>, criado para te guiar, passo a passo, em uma transformação real. Vamos te mostrar como a vida sem lactose pode ser surpreendentemente <span className="bg-primary/20 px-2 rounded-md">fácil, saborosa e libertadora.</span>
                 </p>
                 <Image 
                   src="https://placehold.co/800x600.png" 
@@ -130,7 +130,7 @@ export default function Home() {
         <section className="w-full py-12 md:py-20 bg-muted/40 text-center">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">O Que Você Vai Receber no Desafio 7 Dias Sem Lactose:</h2>
-            <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
+            <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser <span className="text-primary font-semibold">prático, delicioso e transformador,</span> atacando diretamente suas maiores dores.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {whatYouGet.map((item, index) => (
                 <Card key={index} className="bg-accent/20 border-none shadow-lg text-center hover:shadow-xl transition-shadow">
@@ -150,7 +150,7 @@ export default function Home() {
         {/* Bonus Section */}
         <section className="w-full py-12 md:py-20 bg-background text-center">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">BÔNUS EXCLUSIVOS – Seu Suporte para o Sucesso no Desafio!</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">BÔNUS EXCLUSIVOS – Seu Suporte para o <span className="text-primary">Sucesso no Desafio!</span></h2>
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
             <div className="space-y-6">
               {bonuses.map((bonus, index) => (
@@ -173,7 +173,7 @@ export default function Home() {
         <section id="cta" className="w-full py-20 bg-gradient-to-br from-primary to-green-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4">Aceite o Desafio e Transforme Sua Vida em 7 Dias!</h2>
-            <p className="text-md md:text-lg mb-8 max-w-3xl mx-auto">Milhares de pessoas já transformaram sua relação com a comida. Ao aceitar o desafio, você recebe acesso imediato ao nosso material completo para redescobrir o prazer de viver sem lactose.</p>
+            <p className="text-md md:text-lg mb-8 max-w-3xl mx-auto">Milhares de pessoas já transformaram sua relação com a comida. Ao aceitar o desafio, você recebe <span className="font-bold underline">acesso imediato</span> ao nosso material completo para redescobrir o prazer de viver sem lactose.</p>
             <div className="bg-white text-foreground rounded-lg p-6 md:p-8 inline-block shadow-2xl max-w-md w-full">
               <h3 className="text-xl font-bold mb-4">Ao aceitar o desafio, seu acesso imediato inclui:</h3>
                 <ul className="text-left space-y-2 mb-6 text-foreground/90">
@@ -222,7 +222,7 @@ export default function Home() {
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
                 <p className="text-foreground/80 mt-2 text-md md:text-lg">
-                  Temos tanta certeza de que o "DESAFIO 7 DIAS SEM LACTOSE" vai transformar sua vida que oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não estiver satisfeito(a), basta nos enviar um e-mail e devolveremos seu dinheiro, sem perguntas.
+                  Temos tanta certeza de que o "DESAFIO 7 DIAS SEM LACTOSE" vai transformar sua vida que oferecemos uma <span className="font-bold text-primary">garantia incondicional de 7 dias</span>. Se por qualquer motivo você não estiver satisfeito(a), basta nos enviar um e-mail e devolveremos seu dinheiro, sem perguntas.
                 </p>
               </div>
             </div>
@@ -232,7 +232,7 @@ export default function Home() {
         {/* Final CTA */}
         <section className="w-full py-20 text-center bg-background">
             <div className="container mx-auto px-4">
-               <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida Zero Lactose Hoje Mesmo!</h2>
+               <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida <span className="bg-primary/20 text-primary-darker font-bold px-2 py-1 rounded-md">Zero Lactose</span> Hoje Mesmo!</h2>
                 <a href="https://google.com" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                         SIM! QUERO ACEITAR O DESAFIO AGORA!
@@ -257,3 +257,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
