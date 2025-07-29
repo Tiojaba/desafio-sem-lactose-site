@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Minha Receita',
-  description: 'Descubra o sabor sem culpa e ainda faça uma renda extra!',
+  title: 'Desafio 7 Dias Sem Lactose',
+  description: 'Descubra como é fácil viver sem lactose, comendo com prazer!',
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="scroll-smooth">
       <body className={cn(poppins.className, "antialiased")}>
         {children}
         <Toaster />

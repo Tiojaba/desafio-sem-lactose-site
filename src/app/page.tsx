@@ -1,309 +1,208 @@
 
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, ShieldCheck, Heart, Frown, DollarSign, XCircle } from 'lucide-react';
+import { Calendar, UtensilsCrossed, ShoppingCart, Lightbulb, HeartHandshake, ShieldCheck, Star } from 'lucide-react';
 import Image from 'next/image';
-import Script from 'next/script';
-import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
-
-// Extend the Window interface to include Wistia
-declare global {
-  interface Window {
-    _wq?: any[];
-  }
-}
 
 export default function Home() {
-  const finalCtaRef = useRef<HTMLDivElement>(null);
-  const [currentDateText, setCurrentDateText] = useState("...");
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [showContent, setShowContent] = useState(false);
-  const videoId = "5xgv99ozmz";
 
   useEffect(() => {
-    // Client-side only logic
-    setCurrentDateText(format(new Date(), "d 'de' MMMM", { locale: ptBR }));
     setCurrentYear(new Date().getFullYear());
-    
-    // Wistia Player Logic
-    window._wq = window._wq || [];
-    window._wq.push({
-      id: videoId,
-      onReady: function(video: any) {
-        let hasTriggered = false;
-        video.bind("timechange", function(t: number) {
-          const duration = video.duration();
-          if (duration && !hasTriggered && duration - t <= 10) {
-            hasTriggered = true;
-            setShowContent(true);
-          }
-        });
-      }
-    });
-  }, [videoId]);
-
-  const handleScrollToFinalCta = () => {
-    finalCtaRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  }, []);
   
-  const testimonials = [
-    {
-      name: "Ana Silva",
-      text: "Eu achava que nunca mais ia comer um bolo gostoso! As receitas são maravilhosas e fáceis. Já estou até vendendo para as amigas!",
-      image: "https://i.imgur.com/0eebaBM.jpeg",
-      hint: "woman smiling"
-    },
-    {
-      name: "Mariana Lima",
-      text: "Esse guia mudou minha vida! Voltei a comer sem medo e ainda comecei um pequeno negócio com os doces. Muito, muito feliz e grata!",
-      image: "https://i.imgur.com/m03wbdO.jpeg",
-      hint: "woman happy"
-    },
-    {
-      name: "Juliana Costa",
-      text: "Minha filha tem várias restrições e eu não sabia mais o que fazer. Encontrar essas receitas foi um alívio. Nossos lanches agora são deliciosos e seguros. Obrigada de coração!",
-      image: "https://i.imgur.com/Gukp7FS.jpeg",
-      hint: "woman child"
-    },
+  const painPoints = [
+    { text: "Sofre com inchaço extremo, dores abdominais intensas, diarreia (ou constipação severa!), vômitos e náuseas após comer?" },
+    { text: "Sua comida fica sem graça, sem a textura que você ama (aquele queijo que não gratina, o molho que não encorpa)?" },
+    { text: "Sente-se isolado(a) em eventos sociais ou tem medo de comer fora por causa da lactose (e talvez glúten ou outras restrições)?" },
+    { text: "A jornada para o diagnóstico foi difícil e você ainda se sente perdido(a) sobre como adaptar sua alimentação?" },
+    { text: "Preocupado(a) com o custo elevado dos produtos zero lactose e a dificuldade de encontrá-los?" },
+    { text: "A enzima lactase nem sempre resolve, ou você tem receio de usá-la diariamente para tudo?" },
+    { text: "Tem medo de ingredientes ocultos e contaminação cruzada em alimentos industrializados ou até em medicamentos?" },
+    { text: "Lida com perda de peso indesejada, fraqueza ou o impacto emocional de ter que se privar de tanta coisa?" }
   ];
 
-  const faqItems = [
-    {
-      question: "Preciso de experiência na cozinha para fazer as receitas?",
-      answer: "De jeito nenhum! As receitas foram criadas para serem simples e fáceis de seguir, mesmo que você seja iniciante. O passo a passo é detalhado para garantir seu sucesso."
-    },
-    {
-      question: "Os ingredientes são difíceis de encontrar?",
-      answer: "Não. Priorizamos ingredientes fáceis de achar em supermercados e lojas de produtos naturais em todo o Brasil. Você não precisará de nada exótico ou caro."
-    },
-    {
-      question: "Realmente posso ganhar dinheiro com essas receitas?",
-      answer: "Com certeza! O guia inclui dicas de como precificar e vender seus doces, transformando seu novo hobby em uma fonte de renda. Muitas alunas já estão lucrando!"
-    },
-    {
-      question: "O acesso ao guia é vitalício?",
-      answer: "Sim! Ao adquirir o guia 'Minha Receita', você terá acesso ilimitado a todo o material para sempre, incluindo futuras atualizações, para consultar quando quiser."
-    }
+  const whatYouGet = [
+    { icon: Calendar, title: "Plano de Refeições Diário Completo", description: "Um cronograma detalhado para 7 dias, com café da manhã, almoço, jantar e lanches, tudo 100% zero lactose. Acabe com a dúvida do 'o que comer?'" },
+    { icon: UtensilsCrossed, title: "Receitas Exclusivas e Saborosas", description: "Receitas fáceis de seguir, com ingredientes acessíveis, que provam que o zero lactose pode ser delicioso e variado. Desfrute de pratos com sabor e textura incríveis!" },
+    { icon: ShoppingCart, title: "Lista de Compras Otimizada", description: "Tudo o que você precisa para a semana, organizado para economizar seu tempo e seu bolso no supermercado. Menos preocupação, mais economia." },
+    { icon: Lightbulb, title: "Dicas de Substituição Inteligentes", description: "Aprenda a fazer trocas simples e eficazes para adaptar suas receitas favoritas sem perder o sabor e a textura. Recupere o prazer de cozinhar!" },
+    { icon: HeartHandshake, title: "Foco em Resultados Rápidos e Bem-Estar", description: "Sinta a diferença no seu corpo em apenas 7 dias: menos inchaço, mais energia e o fim dos desconfortos que tanto te incomodam." },
+  ];
+
+  const bonuses = [
+    { title: "Bônus #1: E-book 'Técnicas Culinárias Zero Lactose'", description: "Ataca a Dor: 'Medo de errar', 'minhas receitas desandam', 'perda de sabor e textura'. Um guia completo para dominar as substituições desafiadoras." },
+    { title: "Bônus #2: Guia 'Desvendando Rótulos e Ingredientes Ocultos'", description: "Ataca a Dor: 'Confusão com rótulos', 'medo de contaminação cruzada'. Torne-se um(a) expert em ler rótulos e comprar com segurança." },
+    { title: "Bônus #3: Comunidade VIP de Suporte (30 dias)", description: "Ataca a Dor: 'Me sinto sozinho(a)', 'preciso de apoio'. Conecte-se, tire dúvidas e receba motivação em um grupo exclusivo." },
+    { title: "Bônus #4: Módulo Extra 'Zero Lactose & Sem Glúten'", description: "Ataca a Dor: 'Tenho múltiplas restrições'. Guia rápido com substituições e 5 receitas essenciais que são tanto zero lactose quanto sem glúten." },
+  ];
+
+  const testimonials = [
+    { name: "Miriane S.", text: "Sofri por anos com dores horríveis, inchaço e sem saber o que tinha. Depois de descobrir a intolerância, o Desafio 7 Dias foi uma libertação! Finalmente me sinto no controle e sem o medo de passar mal." },
+    { name: "Cliente Satisfeito", location: "São Paulo", text: "Eu tinha muita dor de barriga e gases. Mudei minha alimentação com o Desafio e em poucos dias já me sinto outra pessoa! Valeu cada centavo." },
+    { name: "Lira P.", text: "Passei muito mal por anos e fui forçada a mudar. Com o plano de refeições e as dicas de substituição, estou muito melhor e comendo com prazer novamente!" },
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
-      
-        <main>
-          {/* Hero Section */}
-          <section className="w-full h-[100dvh] flex flex-col items-center justify-center p-4 py-20 bg-gradient-to-b from-[#FFC8C8]/50 to-white">
-            <div className="container mx-auto text-center px-4">
-              <h2 className="text-2xl md:text-4xl font-extrabold text-secondary uppercase tracking-tight max-w-2xl mx-auto">
-                Cansada de não poder comer o que gosta e de se preocupar com dinheiro?
-              </h2>
-              <p className="text-sm md:text-base text-primary mt-4 mb-4 max-w-2xl mx-auto font-normal">
-                Descubra como saborear doces incríveis, sem culpa, e ainda criar uma nova fonte de renda que pode mudar sua vida.
-              </p>
-              <div className="max-w-[280px] mx-auto bg-gradient-to-r from-primary to-[#FF9696] p-1 rounded-lg shadow-2xl mt-4">
-                <div className={`wistia_embed wistia_async_${videoId} videoFoam=true rounded-md overflow-hidden`}>
-                  &nbsp;
+      <main>
+        {/* Hero Section */}
+        <section id="home" className="w-full py-20 md:py-32 bg-gradient-to-b from-accent/30 to-white text-center">
+          <div className="container mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto">
+              DESAFIO 7 DIAS SEM LACTOSE: Sabor, Leveza e Liberdade na Sua Mesa!
+            </h1>
+            <p className="text-lg md:text-xl text-foreground/80 mt-4 max-w-2xl mx-auto">
+              Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, comendo com prazer!
+            </p>
+            <a href="#cta">
+              <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                Quero Aceitar o Desafio Agora!
+              </Button>
+            </a>
+          </div>
+        </section>
+
+        {/* Pain Points Section */}
+        <section className="w-full py-12 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-4xl text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">Você se identifica com alguma dessas dores?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              {painPoints.map((pain, index) => (
+                <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-lg shadow">
+                  <span className="text-2xl mt-1">😔</span>
+                  <p className="text-foreground/90">{pain.text}</p>
                 </div>
+              ))}
+            </div>
+            <p className="text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais leveza e confiança.</p>
+          </div>
+        </section>
+
+        {/* What You Get Section */}
+        <section className="w-full py-12 md:py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-12">O Que Você Vai Receber no Desafio 7 Dias Sem Lactose</h2>
+            <p className="text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {whatYouGet.map((item, index) => (
+                <Card key={index} className="bg-accent/30 border-none shadow-lg text-left hover:shadow-xl transition-shadow">
+                  <CardHeader className="flex flex-row items-center gap-4">
+                    <item.icon className="w-10 h-10 text-primary" />
+                    <CardTitle className="text-lg font-bold text-foreground">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-foreground/80">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Bonus Section */}
+        <section className="w-full py-12 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-4xl text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">BÔNUS EXCLUSIVOS – Seu Suporte para o Sucesso no Desafio!</h2>
+            <p className="text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
+            <div className="space-y-6">
+              {bonuses.map((bonus, index) => (
+                <Card key={index} className="bg-white shadow-md text-left">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3 text-xl text-primary">
+                      <span className="text-2xl">🎁</span> {bonus.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-foreground/80">{bonus.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* CTA Section */}
+        <section id="cta" className="w-full py-20 bg-gradient-to-b from-primary to-green-600 text-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-4">Aceite o Desafio e Transforme Sua Vida em 7 Dias!</h2>
+            <p className="text-lg mb-6">Milhares de pessoas já transformaram sua relação com a comida. Chegou a sua vez!</p>
+            <div className="bg-white text-foreground rounded-lg p-8 inline-block shadow-2xl">
+              <p className="text-lg">Tudo isso por apenas:</p>
+              <p className="text-5xl md:text-6xl font-extrabold my-2 text-primary">R$27,90</p>
+              <p className="text-sm text-gray-500">Acesso Imediato ao Desafio!</p>
+              <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="mt-6 w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                  SIM! QUERO ACEITAR O DESAFIO AGORA!
+                </Button>
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        {/* Testimonials Section */}
+        <section className="py-12 md:py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-10">O Que Nossos Participantes Dizem:</h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="bg-gray-50 border-gray-200 shadow-lg text-center flex flex-col p-6">
+                  <CardContent className="flex-grow">
+                    <p className="text-foreground/80 italic">"{testimonial.text}"</p>
+                  </CardContent>
+                  <CardHeader className="pt-4">
+                    <CardTitle className="text-lg font-semibold text-primary">{testimonial.name}</CardTitle>
+                    {testimonial.location && <p className="text-sm text-gray-500">{testimonial.location}</p>}
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Guarantee Section */}
+        <section className="w-full py-12 bg-accent/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left bg-white p-8 rounded-lg shadow-xl">
+              <ShieldCheck className="h-20 w-20 md:h-24 md:w-24 text-primary shrink-0"/>
+              <div>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
+                <p className="text-foreground/80 mt-2 text-base md:text-lg">
+                  Temos tanta certeza de que o "DESAFIO 7 DIAS SEM LACTOSE" vai transformar sua vida que oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não estiver satisfeito(a), basta nos enviar um e-mail e devolveremos seu dinheiro, sem perguntas.
+                </p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Conditional Content */}
-          {showContent && (
-            <>
-              <section className="w-full py-12 md:py-16 bg-white">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    <Card className="bg-white shadow-lg border-red-200/50">
-                        <CardHeader>
-                            <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                                <Frown className="text-primary h-12 w-12"/> Você se sente frustrada com suas restrições alimentares?
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
-                          <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>É horrível ir a festas e ver todo mundo comendo bolos e doces, enquanto você fica só olhando com medo de passar mal.</span></p>
-                          <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você já se cansou de ter que ler cada rótulo no mercado e de ter que ficar explicando suas restrições para as pessoas.</span></p>
-                          <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A alegria de comer um docinho depois do almoço parece um luxo proibido, e muitas vezes você acaba comendo coisas sem graça só por segurança.</span></p>
-                        </CardContent>
-                    </Card>
-                </div>
-              </section>
-
-               <div className="text-center py-8">
-                  <Button 
-                      size="lg" 
-                      className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
-                      onClick={handleScrollToFinalCta}
-                  >
-                      <span className="text-center">
-                          SIM, QUERO RESOLVER ISSO!
-                      </span>
-                  </Button>
-                </div>
-
-              <section className="w-full py-12 md:py-16 bg-gray-50">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    <Card className="bg-white shadow-lg border-yellow-300/50">
-                        <CardHeader>
-                            <CardTitle className="text-secondary text-xl md:text-2xl flex items-center justify-center text-center gap-2">
-                                <DollarSign className="text-primary h-12 w-12"/> A falta de dinheiro te impede de realizar seus sonhos?
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
-                            <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>As contas chegam todo mês e parece que o dinheiro nunca é suficiente para dar mais conforto à sua família ou realizar seus próprios sonhos.</span></p>
-                            <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>A ideia de depender de um emprego que não te valoriza ou de não ter sua própria renda para fazer suas coisas é desgastante e te deixa insegura.</span></p>
-                            <p className="flex items-start gap-2"><XCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span>Você sonha com a liberdade de ter seu próprio dinheiro, fazendo algo que você ama e que ainda te permite ficar mais perto de quem você ama.</span></p>
-                        </CardContent>
-                    </Card>
-                </div>
-              </section>
-              
-               <div className="text-center py-8">
-                  <Button 
-                      size="lg" 
-                      className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal"
-                      onClick={handleScrollToFinalCta}
-                  >
-                      <span className="text-center">
-                          SIM, QUERO RESOLVER ISSO!
-                      </span>
-                  </Button>
-                </div>
-
-              <section className="w-full py-12 md:py-20 bg-gradient-to-b from-white to-[#FFC8C8]/50">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-2xl md:text-4xl font-extrabold text-secondary">Imagine resolver esses dois problemas de uma vez só!</h2>
-                    <h1 className="text-3xl md:text-5xl font-bold text-primary mt-2 mb-10">Apresentando: Minha Receita!</h1>
-
-                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
-                      <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
-                        <Image 
-                          src="https://i.imgur.com/WBtdvhJ.jpeg" 
-                          alt="Doce sem culpa" 
-                          width={600} 
-                          height={400} 
-                          className="w-full h-full object-cover"
-                          data-ai-hint="delicious dessert"
-                        />
-                      </div>
-                      <div className="aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg">
-                        <Image 
-                          src="https://i.imgur.com/qngt4kS.jpeg" 
-                          alt="Renda extra com doces" 
-                          width={600} 
-                          height={400} 
-                          className="w-full h-full object-cover"
-                          data-ai-hint="homemade sweets"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="max-w-4xl mx-auto text-left space-y-8">
-                        <Card className="bg-white shadow-lg border-primary/20">
-                            <CardHeader>
-                                <CardTitle className="text-secondary text-xl md:text-2xl flex items-center gap-2"><Heart className="text-primary"/>O que você vai conquistar:</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4 text-base md:text-lg text-gray-700">
-                               <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 1: Fim das Restrições!</strong> Chega de sofrer! Coma doces deliciosos sem se preocupar com lactose, glúten ou açúcar. Recupere o prazer de comer sem medo.</span></p>
-                               <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Solução 2: Dinheiro no Bolso!</strong> Transforme sua paixão em lucro! Um caminho testado para fazer uma renda extra vendendo doces irresistíveis e conquistar sua independência financeira.</span></p>
-                               <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Cuidado e Sabor para quem você Ama:</strong> Ingredientes saudáveis para você e sua família, sem abrir mão do sabor.</span></p>
-                               <p className="flex items-start gap-2"><CheckCircle className="text-primary mt-1 h-5 w-5 shrink-0" /> <span><strong>Momentos em Família:</strong> Receitas que agradam a todos, com ou sem restrições, perfeitas para compartilhar e celebrar.</span></p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
-              </section>
-          
-              <div ref={finalCtaRef} className="text-center py-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Chance de Saborear a Liberdade, Por Um Preço Incrível!</h3>
-                  <p className="text-4xl md:text-5xl font-extrabold text-primary my-4">Apenas R$ 27,90</p>
-                  <div className="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md my-4 text-center max-w-lg mx-auto">
-                    <p className="font-bold">Atenção: Este desconto especial é válido somente até hoje, {currentDateText}!</p>
-                  </div>
-                  <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" className="bg-gradient-to-r from-primary to-[#FF9696] hover:scale-105 transition-transform text-primary-foreground font-bold text-lg md:text-xl py-4 px-8 rounded-lg shadow-lg w-full max-w-md mx-auto h-auto whitespace-normal">
-                       <span className="text-center">
-                        SIM, QUERO COMER BEM E GANHAR DINHEIRO!
-                       </span>
+        {/* Final CTA */}
+        <section className="w-full py-20 text-center">
+            <div className="container mx-auto px-4">
+               <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida Zero Lactose Hoje Mesmo!</h2>
+                <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                        SIM! QUERO ACEITAR O DESAFIO AGORA!
                     </Button>
-                  </a>
-              </div>
-              
-              <section className="w-full py-12 bg-[#FFC8C8]/50">
-                <div className="container mx-auto px-4">
-                  <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                      <ShieldCheck className="h-20 w-20 md:h-24 md:w-24 text-primary shrink-0"/>
-                      <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-secondary">Sua Satisfação ou Seu Dinheiro de Volta</h3>
-                        <p className="text-gray-700 mt-2 text-base md:text-lg">
-                            Seu risco é zero. Se por qualquer motivo você não se apaixonar pelo guia "Minha Receita", basta nos enviar um e-mail em até 7 dias e devolvemos todo o seu investimento. Simples assim, sem perguntas e sem ressentimentos.
-                        </p>
-                      </div>
-                  </div>
-                </div>
-              </section>
-
-              <section className="py-12 md:py-20">
-                <div className="container mx-auto px-4">
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">Veja o que nossas alunas estão dizendo</h2>
-                  <div className="grid md:grid-cols-3 gap-8">
-                    {testimonials.map((testimonial, index) => (
-                      <Card key={index} className="bg-white border-primary/20 shadow-xl text-center flex flex-col">
-                        <CardHeader className="items-center">
-                          <div className="flex justify-center w-full">
-                           <Image
-                              src={testimonial.image}
-                              alt={testimonial.name}
-                              width={80}
-                              height={80}
-                              className="rounded-full border-4 border-primary"
-                              data-ai-hint={testimonial.hint}
-                            />
-                          </div>
-                          <CardTitle className="text-secondary pt-2 text-xl">{testimonial.name}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-gray-600">"{testimonial.text}"</p>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              </section>
-              
-              <section className="w-full py-12 md:py-20 bg-gray-50">
-                <div className="container mx-auto px-4 max-w-4xl">
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-center text-secondary mb-10">
-                    Suas Dúvidas, Respondidas
-                  </h2>
-                  <Accordion type="single" collapsible className="w-full">
-                    {faqItems.map((item, index) => (
-                      <AccordionItem key={index} value={`item-${index}`}>
-                        <AccordionTrigger className="text-left text-lg font-semibold text-secondary">
-                          {item.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-base text-gray-700">
-                          {item.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </div>
-              </section>
-            </>
-          )}
-
-          {/* Footer */}
-          <footer className="w-full py-6 mt-auto bg-gray-100">
-            <div className="container mx-auto text-center text-gray-500 px-4">
-              <p>&copy; {currentYear} Minha Receita. Todos os direitos reservados.</p>
+                </a>
             </div>
-          </footer>
-        </main>
+        </section>
+
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full py-8 mt-auto bg-gray-100">
+        <div className="container mx-auto text-center text-gray-600 px-4">
+          <p>&copy; {currentYear} Desafio 7 Dias Sem Lactose. Todos os direitos reservados.</p>
+          <div className="flex justify-center gap-4 mt-4 text-sm">
+            <a href="#" className="hover:underline">Política de Privacidade</a>
+            <span className="text-gray-400">|</span>
+            <a href="#" className="hover:underline">Termos de Uso</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
