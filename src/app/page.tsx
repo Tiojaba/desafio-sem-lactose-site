@@ -53,7 +53,7 @@ export default function Home() {
         <section id="home" className="w-full py-12 md:py-20 bg-gradient-to-b from-accent/50 to-background text-center">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto mb-8">
-              DESAFIO 7 DIAS SEM LACTOSE: <span className="bg-primary/20 text-primary-darker font-bold px-2 py-1 rounded-md">Sabor, Leveza e Liberdade</span> na Sua Mesa!
+              DESAFIO 7 DIAS SEM LACTOSE: <span className="bg-primary/20 text-accent-foreground font-bold px-2 py-1 rounded-md">Sabor, Leveza e Liberdade</span> na Sua Mesa!
             </h1>
              <Image 
               src="https://placehold.co/600x400.png" 
@@ -86,7 +86,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="text-lg md:text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais <span className="bg-primary/20 px-2 rounded-md">leveza e confiança.</span></p>
+            <p className="text-lg md:text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais <span className="bg-primary/20 px-2 rounded-md text-accent-foreground">leveza e confiança.</span></p>
           </div>
         </section>
         
@@ -95,7 +95,7 @@ export default function Home() {
             <div className="container mx-auto px-4 max-w-4xl">
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Apresentando o Desafio: Uma Jornada de 7 Dias para sua <span className="text-primary">Liberdade Alimentar</span></h2>
                 <p className="text-md md:text-lg text-foreground/80 mb-8 max-w-3xl mx-auto">
-                Imagine uma semana inteira sem desconforto, sem se preocupar com o que comer e, o melhor de tudo, redescobrindo o prazer de pratos deliciosos que você achou que nunca mais poderia provar. Esse é o "Desafio 7 Dias Sem Lactose". Não é apenas uma dieta, é um <span className="font-semibold text-primary">plano de ação completo</span>, criado para te guiar, passo a passo, em uma transformação real. Vamos te mostrar como a vida sem lactose pode ser surpreendentemente <span className="bg-primary/20 px-2 rounded-md">fácil, saborosa e libertadora.</span>
+                Imagine uma semana inteira sem desconforto, sem se preocupar com o que comer e, o melhor de tudo, redescobrindo o prazer de pratos deliciosos que você achou que nunca mais poderia provar. Esse é o "Desafio 7 Dias Sem Lactose". Não é apenas uma dieta, é um <span className="font-semibold text-primary">plano de ação completo</span>, criado para te guiar, passo a passo, em uma transformação real. Vamos te mostrar como a vida sem lactose pode ser surpreendentemente <span className="bg-primary/20 px-2 rounded-md text-accent-foreground">fácil, saborosa e libertadora.</span>
                 </p>
                 <Image 
                   src="https://placehold.co/800x600.png" 
@@ -232,7 +232,7 @@ export default function Home() {
         {/* Final CTA */}
         <section className="w-full py-20 text-center bg-background">
             <div className="container mx-auto px-4">
-               <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida <span className="bg-primary/20 text-primary-darker font-bold px-2 py-1 rounded-md">Zero Lactose</span> Hoje Mesmo!</h2>
+               <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida <span className="bg-primary/20 text-accent-foreground font-bold px-2 py-1 rounded-md">Zero Lactose</span> Hoje Mesmo!</h2>
                 <a href="https://google.com" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                         SIM! QUERO ACEITAR O DESAFIO AGORA!
