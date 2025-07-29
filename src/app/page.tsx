@@ -29,7 +29,7 @@ export default function Home() {
     { icon: Calendar, title: "Plano de Refeições Diário Completo", description: "Um cronograma detalhado para 7 dias, com café da manhã, almoço, jantar e lanches, tudo 100% zero lactose. Acabe com a dúvida do 'o que comer?'" },
     { icon: UtensilsCrossed, title: "Receitas Exclusivas e Saborosas", description: "Receitas fáceis de seguir, com ingredientes acessíveis, que provam que o zero lactose pode ser delicioso e variado. Desfrute de pratos com sabor e textura incríveis!" },
     { icon: ShoppingCart, title: "Lista de Compras Otimizada", description: "Tudo o que você precisa para a semana, organizado para economizar seu tempo e seu bolso no supermercado. Menos preocupação, mais economia." },
-    { icon: Lightbulb, title: "Dicas de Substituição Inteligentes", description: "Aprenda a fazer trocas simples e eficazes para adaptar suas receitas favoritas sem perder o sabor e a textura. Recupere o prazer de cozinhar!" },
+    { icon: Lightbulb, title: "Dicas de Substituição Inteligentes", description: "Aprenda a fazer trocas simples e eficaz para adaptar suas receitas favoritas sem perder o sabor e a textura. Recupere o prazer de cozinhar!" },
     { icon: HeartHandshake, title: "Foco em Resultados Rápidos e Bem-Estar", description: "Sinta a diferença no seu corpo em apenas 7 dias: menos inchaço, mais energia e o fim dos desconfortos que tanto te incomodam." },
   ];
 
@@ -50,12 +50,20 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-white">
       <main>
         {/* Hero Section */}
-        <section id="home" className="w-full py-20 md:py-32 bg-gradient-to-b from-accent/30 to-white text-center">
+        <section id="home" className="w-full py-12 md:py-24 bg-gradient-to-b from-accent/30 to-white text-center">
           <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto">
+            <Image 
+              src="https://placehold.co/600x400.png" 
+              alt="Prato de comida saudável" 
+              width={600} 
+              height={400}
+              className="mx-auto rounded-lg shadow-lg mb-8"
+              data-ai-hint="healthy food"
+            />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto">
               DESAFIO 7 DIAS SEM LACTOSE: Sabor, Leveza e Liberdade na Sua Mesa!
             </h1>
-            <p className="text-lg md:text-xl text-foreground/80 mt-4 max-w-2xl mx-auto">
+            <p className="text-md sm:text-lg md:text-xl text-foreground/80 mt-4 max-w-2xl mx-auto">
               Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, comendo com prazer!
             </p>
             <a href="#cta">
@@ -74,11 +82,11 @@ export default function Home() {
               {painPoints.map((pain, index) => (
                 <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-lg shadow">
                   <span className="text-2xl mt-1">😔</span>
-                  <p className="text-foreground/90">{pain.text}</p>
+                  <p className="text-foreground/90 text-sm md:text-base">{pain.text}</p>
                 </div>
               ))}
             </div>
-            <p className="text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais leveza e confiança.</p>
+            <p className="text-lg md:text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais leveza e confiança.</p>
           </div>
         </section>
 
@@ -86,16 +94,16 @@ export default function Home() {
         <section className="w-full py-12 md:py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-12">O Que Você Vai Receber no Desafio 7 Dias Sem Lactose</h2>
-            <p className="text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
+            <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {whatYouGet.map((item, index) => (
                 <Card key={index} className="bg-accent/30 border-none shadow-lg text-left hover:shadow-xl transition-shadow">
                   <CardHeader className="flex flex-row items-center gap-4">
                     <item.icon className="w-10 h-10 text-primary" />
-                    <CardTitle className="text-lg font-bold text-foreground">{item.title}</CardTitle>
+                    <CardTitle className="text-md font-bold text-foreground">{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-foreground/80">{item.description}</p>
+                    <p className="text-foreground/80 text-sm md:text-base">{item.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -107,17 +115,17 @@ export default function Home() {
         <section className="w-full py-12 md:py-20 bg-gray-50">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">BÔNUS EXCLUSIVOS – Seu Suporte para o Sucesso no Desafio!</h2>
-            <p className="text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
+            <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
             <div className="space-y-6">
               {bonuses.map((bonus, index) => (
                 <Card key={index} className="bg-white shadow-md text-left">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-xl text-primary">
+                    <CardTitle className="flex items-center gap-3 text-lg md:text-xl text-primary">
                       <span className="text-2xl">🎁</span> {bonus.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-foreground/80">{bonus.description}</p>
+                    <p className="text-foreground/80 text-sm md:text-base">{bonus.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -129,13 +137,13 @@ export default function Home() {
         <section id="cta" className="w-full py-20 bg-gradient-to-b from-primary to-green-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4">Aceite o Desafio e Transforme Sua Vida em 7 Dias!</h2>
-            <p className="text-lg mb-6">Milhares de pessoas já transformaram sua relação com a comida. Chegou a sua vez!</p>
-            <div className="bg-white text-foreground rounded-lg p-8 inline-block shadow-2xl">
-              <p className="text-lg">Tudo isso por apenas:</p>
-              <p className="text-5xl md:text-6xl font-extrabold my-2 text-primary">R$27,90</p>
-              <p className="text-sm text-gray-500">Acesso Imediato ao Desafio!</p>
+            <p className="text-md md:text-lg mb-6">Milhares de pessoas já transformaram sua relação com a comida. Chegou a sua vez!</p>
+            <div className="bg-white text-foreground rounded-lg p-6 md:p-8 inline-block shadow-2xl">
+              <p className="text-md md:text-lg">Tudo isso por apenas:</p>
+              <p className="text-4xl md:text-6xl font-extrabold my-2 text-primary">R$27,90</p>
+              <p className="text-xs md:text-sm text-gray-500">Acesso Imediato ao Desafio!</p>
               <a href="https://google.com" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="mt-6 w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                <Button size="lg" className="mt-6 w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-3 px-8 md:py-4 md:px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                   SIM! QUERO ACEITAR O DESAFIO AGORA!
                 </Button>
               </a>
@@ -151,7 +159,7 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <Card key={index} className="bg-gray-50 border-gray-200 shadow-lg text-center flex flex-col p-6">
                   <CardContent className="flex-grow">
-                    <p className="text-foreground/80 italic">"{testimonial.text}"</p>
+                    <p className="text-foreground/80 italic text-sm md:text-base">"{testimonial.text}"</p>
                   </CardContent>
                   <CardHeader className="pt-4">
                     <CardTitle className="text-lg font-semibold text-primary">{testimonial.name}</CardTitle>
@@ -166,11 +174,11 @@ export default function Home() {
         {/* Guarantee Section */}
         <section className="w-full py-12 bg-accent/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left bg-white p-8 rounded-lg shadow-xl">
-              <ShieldCheck className="h-20 w-20 md:h-24 md:w-24 text-primary shrink-0"/>
+            <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left bg-white p-6 md:p-8 rounded-lg shadow-xl">
+              <ShieldCheck className="h-16 w-16 md:h-24 md:w-24 text-primary shrink-0"/>
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
-                <p className="text-foreground/80 mt-2 text-base md:text-lg">
+                <h3 className="text-lg md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
+                <p className="text-foreground/80 mt-2 text-sm md:text-lg">
                   Temos tanta certeza de que o "DESAFIO 7 DIAS SEM LACTOSE" vai transformar sua vida que oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não estiver satisfeito(a), basta nos enviar um e-mail e devolveremos seu dinheiro, sem perguntas.
                 </p>
               </div>
@@ -206,3 +214,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
