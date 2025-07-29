@@ -89,9 +89,37 @@ export default function Home() {
             <p className="text-lg md:text-xl font-semibold text-primary mt-12 max-w-3xl mx-auto">Chega de sacrifícios! Redescubra o prazer de comer e viva com mais leveza e confiança.</p>
           </div>
         </section>
+        
+        {/* Apresentando o Desafio Section */}
+        <section className="w-full py-12 md:py-20 bg-background text-center">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Apresentando o Desafio: Uma Jornada de 7 Dias para sua Liberdade Alimentar</h2>
+                <p className="text-md md:text-lg text-foreground/80 mb-8 max-w-3xl mx-auto">
+                Imagine uma semana inteira sem desconforto, sem se preocupar com o que comer e, o melhor de tudo, redescobrindo o prazer de pratos deliciosos que você achou que nunca mais poderia provar. Esse é o "Desafio 7 Dias Sem Lactose". Não é apenas uma dieta, é um plano de ação completo, criado para te guiar, passo a passo, em uma transformação real. Vamos te mostrar como a vida sem lactose pode ser surpreendentemente fácil, saborosa e libertadora.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="flex flex-col items-center text-center gap-2 p-4">
+                    <div className="text-5xl font-bold text-primary">1-2</div>
+                    <h3 className="text-lg font-semibold mt-2">Desintoxicação e Adaptação</h3>
+                    <p className="text-foreground/80">Foco em refeições leves e nutritivas para acalmar seu sistema digestivo e começar a sentir os primeiros sinais de alívio.</p>
+                </div>
+                <div className="flex flex-col items-center text-center gap-2 p-4">
+                    <div className="text-5xl font-bold text-primary">3-5</div>
+                    <h3 className="text-lg font-semibold mt-2">Redescoberta dos Sabores</h3>
+                    <p className="text-foreground/80">Introdução de receitas mais elaboradas e técnicas para recriar a cremosidade e textura que você ama, sem usar lactose.</p>
+                </div>
+                <div className="flex flex-col items-center text-center gap-2 p-4">
+                    <div className="text-5xl font-bold text-primary">6-7</div>
+                    <h3 className="text-lg font-semibold mt-2">Confiança e Autonomia</h3>
+                    <p className="text-foreground/80">Você aprenderá a fazer substituições inteligentes e a planejar suas refeições, ganhando a confiança para seguir em frente sozinho(a).</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
 
         {/* What You Get Section */}
-        <section className="w-full py-12 md:py-20 bg-background text-center">
+        <section className="w-full py-12 md:py-20 bg-muted/40 text-center">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">O Que Você Vai Receber no Desafio 7 Dias Sem Lactose:</h2>
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
@@ -112,13 +140,13 @@ export default function Home() {
         </section>
 
         {/* Bonus Section */}
-        <section className="w-full py-12 md:py-20 bg-muted/40 text-center">
+        <section className="w-full py-12 md:py-20 bg-background text-center">
           <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">BÔNUS EXCLUSIVOS – Seu Suporte para o Sucesso no Desafio!</h2>
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
             <div className="space-y-6">
               {bonuses.map((bonus, index) => (
-                <Card key={index} className="bg-background shadow-md text-center">
+                <Card key={index} className="bg-muted/40 shadow-md text-center">
                   <CardHeader>
                     <CardTitle className="flex flex-col items-center gap-3 text-lg md:text-xl text-primary">
                       <span className="text-2xl">🎁</span> {bonus.title}
@@ -139,7 +167,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4">Aceite o Desafio e Transforme Sua Vida em 7 Dias!</h2>
             <p className="text-md md:text-lg mb-8 max-w-3xl mx-auto">Milhares de pessoas já transformaram sua relação com a comida. Ao aceitar o desafio, você recebe acesso imediato ao nosso material completo para redescobrir o prazer de viver sem lactose.</p>
             <div className="bg-white text-foreground rounded-lg p-6 md:p-8 inline-block shadow-2xl max-w-md w-full">
-              <h3 className="text-xl font-bold mb-2">Seu acesso inclui:</h3>
+              <h3 className="text-xl font-bold mb-4">Ao aceitar o desafio, seu acesso imediato inclui:</h3>
                 <ul className="text-left space-y-2 mb-6 text-foreground/90">
                     <li className="flex items-start gap-2"><Check className="w-5 h-5 text-primary mt-1 shrink-0" /><span>E-book com Plano de Refeições para 7 Dias</span></li>
                     <li className="flex items-start gap-2"><Check className="w-5 h-5 text-primary mt-1 shrink-0" /><span>Receitas deliciosas e fáceis de fazer</span></li>
@@ -221,3 +249,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
