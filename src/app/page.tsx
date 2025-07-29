@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, UtensilsCrossed, ShoppingCart, Lightbulb, HeartHandshake, ShieldCheck, Star } from 'lucide-react';
+import { Calendar, UtensilsCrossed, ShoppingCart, Lightbulb, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
@@ -29,41 +29,41 @@ export default function Home() {
     { icon: Calendar, title: "Plano de Refeições Diário Completo", description: "Um cronograma detalhado para 7 dias, com café da manhã, almoço, jantar e lanches, tudo 100% zero lactose. Acabe com a dúvida do 'o que comer?'" },
     { icon: UtensilsCrossed, title: "Receitas Exclusivas e Saborosas", description: "Receitas fáceis de seguir, com ingredientes acessíveis, que provam que o zero lactose pode ser delicioso e variado. Desfrute de pratos com sabor e textura incríveis!" },
     { icon: ShoppingCart, title: "Lista de Compras Otimizada", description: "Tudo o que você precisa para a semana, organizado para economizar seu tempo e seu bolso no supermercado. Menos preocupação, mais economia." },
-    { icon: Lightbulb, title: "Dicas de Substituição Inteligentes", description: "Aprenda a fazer trocas simples e eficaz para adaptar suas receitas favoritas sem perder o sabor e a textura. Recupere o prazer de cozinhar!" },
-    { icon: HeartHandshake, title: "Foco em Resultados Rápidos e Bem-Estar", description: "Sinta a diferença no seu corpo em apenas 7 dias: menos inchaço, mais energia e o fim dos desconfortos que tanto te incomodam." },
+    { icon: Lightbulb, title: "Dicas de Substituição Inteligentes", description: "Aprenda a fazer trocas simples e eficazes para adaptar suas receitas favoritas sem perder o sabor e a textura. Recupere o prazer de cozinhar!" },
+    { icon: ShieldCheck, title: "Foco em Resultados Rápidos e Bem-Estar", description: "Sinta a diferença no seu corpo em apenas 7 dias: menos inchaço, mais energia e o fim dos desconfortos que tanto te incomodam." },
   ];
 
   const bonuses = [
-    { title: "Bônus #1: E-book 'Técnicas Culinárias Zero Lactose'", description: "Ataca a Dor: 'Medo de errar', 'minhas receitas desandam', 'perda de sabor e textura'. Um guia completo para dominar as substituições desafiadoras." },
-    { title: "Bônus #2: Guia 'Desvendando Rótulos e Ingredientes Ocultos'", description: "Ataca a Dor: 'Confusão com rótulos', 'medo de contaminação cruzada'. Torne-se um(a) expert em ler rótulos e comprar com segurança." },
-    { title: "Bônus #3: Comunidade VIP de Suporte (30 dias)", description: "Ataca a Dor: 'Me sinto sozinho(a)', 'preciso de apoio'. Conecte-se, tire dúvidas e receba motivação em um grupo exclusivo." },
-    { title: "Bônus #4: Módulo Extra 'Zero Lactose & Sem Glúten'", description: "Ataca a Dor: 'Tenho múltiplas restrições'. Guia rápido com substituições e 5 receitas essenciais que são tanto zero lactose quanto sem glúten." },
+    { title: "Bônus #1: E-book \"Técnicas Culinárias Zero Lactose: O Segredo do Sabor e Textura\"", description: "Ataca a Dor: \"Medo de errar\", \"minhas receitas desandam\", \"perda de sabor e textura\". Um guia completo com o passo a passo para dominar as substituições mais desafiadoras (como aquele queijo que você ama!), garantindo sabor e consistência perfeitos. Inclui dicas e ilustrações para facilitar seu aprendizado." },
+    { title: "Bônus #2: Guia \"Desvendando Rótulos e Ingredientes Ocultos\"", description: "Ataca a Dor: \"Confusão com rótulos\", \"medo de contaminação cruzada (até em remédios!)\". Torne-se um(a) expert em ler rótulos e identificar lactose disfarçada, comprando com segurança e sem ansiedade." },
+    { title: "Bônus #3: Comunidade VIP de Suporte no WhatsApp/Telegram (30 dias)", description: "Ataca a Dor: \"Me sinto sozinho(a)\", \"preciso de apoio\", \"dúvidas que ninguém responde\". Conecte-se, tire dúvidas com especialistas, compartilhe experiências e receba motivação em um grupo exclusivo." },
+    { title: "Bônus #4: Módulo Extra \"Zero Lactose & Sem Glúten: Primeiros Passos\"", description: "Ataca a Dor: \"Tenho múltiplas restrições\", \"é tudo muito complexo\". Guia rápido com as principais substituições e 5 receitas essenciais que são tanto zero lactose quanto sem glúten, para simplificar sua vida." },
   ];
 
   const testimonials = [
-    { name: "Miriane S.", text: "Sofri por anos com dores horríveis, inchaço e sem saber o que tinha. Depois de descobrir a intolerância, o Desafio 7 Dias foi uma libertação! Finalmente me sinto no controle e sem o medo de passar mal." },
-    { name: "Cliente Satisfeito", location: "São Paulo", text: "Eu tinha muita dor de barriga e gases. Mudei minha alimentação com o Desafio e em poucos dias já me sinto outra pessoa! Valeu cada centavo." },
-    { name: "Lira P.", text: "Passei muito mal por anos e fui forçada a mudar. Com o plano de refeições e as dicas de substituição, estou muito melhor e comendo com prazer novamente!" },
+    { name: "Miriane S.", role: "Participante do Desafio", text: "Sofri por anos com dores horríveis, inchaço e sem saber o que tinha. Depois de descobrir a intolerância, o Desafio 7 Dias foi uma libertação! Finalmente me sinto no controle e sem o medo de passar mal." },
+    { name: "Cliente Satisfeito", role: "São Paulo", text: "Eu tinha muita dor de barriga e gases. Mudei minha alimentação com o Desafio e em poucos dias já me sinto outra pessoa! Valeu cada centavo." },
+    { name: "Lira P.", role: "Participante do Desafio", text: "Passei muito mal por anos e fui forçada a mudar. Com o plano de refeições e as dicas de substituição, estou muito melhor e comendo com prazer novamente!" },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-background">
       <main>
         {/* Hero Section */}
-        <section id="home" className="w-full py-12 md:py-24 bg-gradient-to-b from-accent/30 to-white text-center">
+        <section id="home" className="w-full py-12 md:py-20 bg-gradient-to-b from-accent/50 to-background text-center">
           <div className="container mx-auto px-4">
-            <Image 
+             <Image 
               src="https://placehold.co/600x400.png" 
-              alt="Prato de comida saudável" 
+              alt="Prato de comida saudável e colorida" 
               width={600} 
               height={400}
-              className="mx-auto rounded-lg shadow-lg mb-8"
-              data-ai-hint="healthy food"
+              className="mx-auto rounded-xl shadow-lg mb-8 w-full max-w-md"
+              data-ai-hint="healthy food vibrant"
             />
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto">
               DESAFIO 7 DIAS SEM LACTOSE: Sabor, Leveza e Liberdade na Sua Mesa!
             </h1>
-            <p className="text-md sm:text-lg md:text-xl text-foreground/80 mt-4 max-w-2xl mx-auto">
+            <p className="text-md sm:text-lg text-foreground/80 mt-4 max-w-2xl mx-auto">
               Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, comendo com prazer!
             </p>
             <a href="#cta">
@@ -75,14 +75,14 @@ export default function Home() {
         </section>
 
         {/* Pain Points Section */}
-        <section className="w-full py-12 md:py-20 bg-gray-50">
+        <section className="w-full py-12 md:py-20 bg-muted/40">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">Você se identifica com alguma dessas dores?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {painPoints.map((pain, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-lg shadow">
-                  <span className="text-2xl mt-1">😔</span>
-                  <p className="text-foreground/90 text-sm md:text-base">{pain.text}</p>
+                <div key={index} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 p-4 bg-background rounded-lg shadow-md">
+                  <span className="text-3xl mt-1">😔</span>
+                  <p className="text-foreground/90">{pain.text}</p>
                 </div>
               ))}
             </div>
@@ -91,19 +91,19 @@ export default function Home() {
         </section>
 
         {/* What You Get Section */}
-        <section className="w-full py-12 md:py-20 bg-white">
+        <section className="w-full py-12 md:py-20 bg-background">
           <div className="container mx-auto px-4 max-w-5xl text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-12">O Que Você Vai Receber no Desafio 7 Dias Sem Lactose</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">O Que Você Vai Receber no Desafio 7 Dias Sem Lactose:</h2>
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {whatYouGet.map((item, index) => (
-                <Card key={index} className="bg-accent/30 border-none shadow-lg text-left hover:shadow-xl transition-shadow">
-                  <CardHeader className="flex flex-row items-center gap-4">
+                <Card key={index} className="bg-accent/20 border-none shadow-lg text-center md:text-left hover:shadow-xl transition-shadow">
+                  <CardHeader className="flex flex-col md:flex-row items-center gap-4">
                     <item.icon className="w-10 h-10 text-primary" />
                     <CardTitle className="text-md font-bold text-foreground">{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-foreground/80 text-sm md:text-base">{item.description}</p>
+                    <p className="text-foreground/80">{item.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -112,20 +112,20 @@ export default function Home() {
         </section>
 
         {/* Bonus Section */}
-        <section className="w-full py-12 md:py-20 bg-gray-50">
+        <section className="w-full py-12 md:py-20 bg-muted/40">
           <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">BÔNUS EXCLUSIVOS – Seu Suporte para o Sucesso no Desafio!</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">BÔNUS EXCLUSIVOS – Seu Suporte para o Sucesso no Desafio!</h2>
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
             <div className="space-y-6">
               {bonuses.map((bonus, index) => (
-                <Card key={index} className="bg-white shadow-md text-left">
+                <Card key={index} className="bg-background shadow-md text-center md:text-left">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-lg md:text-xl text-primary">
+                    <CardTitle className="flex flex-col md:flex-row items-center gap-3 text-lg md:text-xl text-primary">
                       <span className="text-2xl">🎁</span> {bonus.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-foreground/80 text-sm md:text-base">{bonus.description}</p>
+                    <p className="text-foreground/80">{bonus.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -134,10 +134,10 @@ export default function Home() {
         </section>
         
         {/* CTA Section */}
-        <section id="cta" className="w-full py-20 bg-gradient-to-b from-primary to-green-600 text-white">
+        <section id="cta" className="w-full py-20 bg-gradient-to-br from-primary to-green-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4">Aceite o Desafio e Transforme Sua Vida em 7 Dias!</h2>
-            <p className="text-md md:text-lg mb-6">Milhares de pessoas já transformaram sua relação com a comida. Chegou a sua vez!</p>
+            <p className="text-md md:text-lg mb-6 max-w-2xl mx-auto">Milhares de pessoas já transformaram sua relação com a comida e redescobriram o prazer de viver sem lactose. Chegou a sua vez!</p>
             <div className="bg-white text-foreground rounded-lg p-6 md:p-8 inline-block shadow-2xl">
               <p className="text-md md:text-lg">Tudo isso por apenas:</p>
               <p className="text-4xl md:text-6xl font-extrabold my-2 text-primary">R$27,90</p>
@@ -152,18 +152,18 @@ export default function Home() {
         </section>
         
         {/* Testimonials Section */}
-        <section className="py-12 md:py-20 bg-white">
+        <section className="py-12 md:py-20 bg-background">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-10">O Que Nossos Participantes Dizem:</h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="bg-gray-50 border-gray-200 shadow-lg text-center flex flex-col p-6">
-                  <CardContent className="flex-grow">
-                    <p className="text-foreground/80 italic text-sm md:text-base">"{testimonial.text}"</p>
+                <Card key={index} className="bg-muted/40 border-gray-200/50 shadow-lg flex flex-col p-6 text-center">
+                   <CardContent className="flex-grow">
+                    <p className="text-foreground/80 italic">"{testimonial.text}"</p>
                   </CardContent>
                   <CardHeader className="pt-4">
                     <CardTitle className="text-lg font-semibold text-primary">{testimonial.name}</CardTitle>
-                    {testimonial.location && <p className="text-sm text-gray-500">{testimonial.location}</p>}
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
                   </CardHeader>
                 </Card>
               ))}
@@ -172,13 +172,13 @@ export default function Home() {
         </section>
 
         {/* Guarantee Section */}
-        <section className="w-full py-12 bg-accent/30">
+        <section className="w-full py-12 bg-muted/40">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left bg-white p-6 md:p-8 rounded-lg shadow-xl">
               <ShieldCheck className="h-16 w-16 md:h-24 md:w-24 text-primary shrink-0"/>
               <div>
-                <h3 className="text-lg md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
-                <p className="text-foreground/80 mt-2 text-sm md:text-lg">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
+                <p className="text-foreground/80 mt-2 text-md md:text-lg">
                   Temos tanta certeza de que o "DESAFIO 7 DIAS SEM LACTOSE" vai transformar sua vida que oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não estiver satisfeito(a), basta nos enviar um e-mail e devolveremos seu dinheiro, sem perguntas.
                 </p>
               </div>
@@ -187,7 +187,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="w-full py-20 text-center">
+        <section className="w-full py-20 text-center bg-background">
             <div className="container mx-auto px-4">
                <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida Zero Lactose Hoje Mesmo!</h2>
                 <a href="https://google.com" target="_blank" rel="noopener noreferrer">
@@ -201,12 +201,12 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 mt-auto bg-gray-100">
-        <div className="container mx-auto text-center text-gray-600 px-4">
+      <footer className="w-full py-8 mt-auto bg-gray-800 text-gray-300">
+        <div className="container mx-auto text-center px-4">
           <p>&copy; {currentYear} Desafio 7 Dias Sem Lactose. Todos os direitos reservados.</p>
           <div className="flex justify-center gap-4 mt-4 text-sm">
             <a href="#" className="hover:underline">Política de Privacidade</a>
-            <span className="text-gray-400">|</span>
+            <span className="text-gray-500">|</span>
             <a href="#" className="hover:underline">Termos de Uso</a>
           </div>
         </div>
