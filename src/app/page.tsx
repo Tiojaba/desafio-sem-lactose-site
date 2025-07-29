@@ -184,7 +184,7 @@ export default function Home() {
               <p className="text-md md:text-lg">Tudo isso por apenas:</p>
               <p className="text-4xl md:text-6xl font-extrabold my-2 text-primary">R$27,90</p>
               <p className="text-xs md:text-sm text-gray-500">Acesso Imediato ao Desafio!</p>
-              <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://pay.kirvano.com/e5f45d01-223a-4886-ae05-5ced3b68a2f3" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="mt-6 w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-3 px-8 md:py-4 md:px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                   SIM! QUERO ACEITAR O DESAFIO AGORA!
                 </Button>
@@ -232,7 +232,7 @@ export default function Home() {
         <section className="w-full py-20 text-center bg-background">
             <div className="container mx-auto px-4">
                <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida <span className="font-bold text-primary">Zero Lactose</span> Hoje Mesmo!</h2>
-                <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://pay.kirvano.com/e5f45d01-223a-4886-ae05-5ced3b68a2f3" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                         SIM! QUERO ACEITAR O DESAFIO AGORA!
                     </Button>
