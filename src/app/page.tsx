@@ -97,6 +97,14 @@ export default function Home() {
                 <p className="text-md md:text-lg text-foreground/80 mb-8 max-w-3xl mx-auto">
                 Imagine uma semana inteira sem desconforto, sem se preocupar com o que comer e, o melhor de tudo, redescobrindo o prazer de pratos deliciosos que você achou que nunca mais poderia provar. Esse é o "Desafio 7 Dias Sem Lactose". Não é apenas uma dieta, é um plano de ação completo, criado para te guiar, passo a passo, em uma transformação real. Vamos te mostrar como a vida sem lactose pode ser surpreendentemente fácil, saborosa e libertadora.
                 </p>
+                <Image 
+                  src="https://placehold.co/800x600.png" 
+                  alt="Mockup da área de membros do desafio"
+                  width={800} 
+                  height={600}
+                  className="mx-auto rounded-xl shadow-lg mb-12 w-full max-w-2xl"
+                  data-ai-hint="dashboard course mockup"
+                />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="flex flex-col items-center text-center gap-2 p-4">
                     <div className="text-5xl font-bold text-primary">1-2</div>
@@ -249,5 +257,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
