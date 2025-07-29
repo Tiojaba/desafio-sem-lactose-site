@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, UtensilsCrossed, ShoppingCart, Lightbulb, ShieldCheck } from 'lucide-react';
+import { Calendar, UtensilsCrossed, ShoppingCart, Lightbulb, ShieldCheck, Check } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
@@ -52,6 +52,9 @@ export default function Home() {
         {/* Hero Section */}
         <section id="home" className="w-full py-12 md:py-20 bg-gradient-to-b from-accent/50 to-background text-center">
           <div className="container mx-auto px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto mb-8">
+              DESAFIO 7 DIAS SEM LACTOSE: Sabor, Leveza e Liberdade na Sua Mesa!
+            </h1>
              <Image 
               src="https://placehold.co/600x400.png" 
               alt="Prato de comida saudável e colorida" 
@@ -60,9 +63,6 @@ export default function Home() {
               className="mx-auto rounded-xl shadow-lg mb-8 w-full max-w-md"
               data-ai-hint="healthy food vibrant"
             />
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground max-w-3xl mx-auto">
-              DESAFIO 7 DIAS SEM LACTOSE: Sabor, Leveza e Liberdade na Sua Mesa!
-            </h1>
             <p className="text-md sm:text-lg text-foreground/80 mt-4 max-w-2xl mx-auto">
               Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, comendo com prazer!
             </p>
@@ -75,8 +75,8 @@ export default function Home() {
         </section>
 
         {/* Pain Points Section */}
-        <section className="w-full py-12 md:py-20 bg-muted/40">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
+        <section className="w-full py-12 md:py-20 bg-muted/40 text-center">
+          <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">Você se identifica com alguma dessas dores?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {painPoints.map((pain, index) => (
@@ -91,8 +91,8 @@ export default function Home() {
         </section>
 
         {/* What You Get Section */}
-        <section className="w-full py-12 md:py-20 bg-background">
-          <div className="container mx-auto px-4 max-w-5xl text-center">
+        <section className="w-full py-12 md:py-20 bg-background text-center">
+          <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">O Que Você Vai Receber no Desafio 7 Dias Sem Lactose:</h2>
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -112,8 +112,8 @@ export default function Home() {
         </section>
 
         {/* Bonus Section */}
-        <section className="w-full py-12 md:py-20 bg-muted/40">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
+        <section className="w-full py-12 md:py-20 bg-muted/40 text-center">
+          <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">BÔNUS EXCLUSIVOS – Seu Suporte para o Sucesso no Desafio!</h2>
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
             <div className="space-y-6">
@@ -137,8 +137,15 @@ export default function Home() {
         <section id="cta" className="w-full py-20 bg-gradient-to-br from-primary to-green-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4">Aceite o Desafio e Transforme Sua Vida em 7 Dias!</h2>
-            <p className="text-md md:text-lg mb-6 max-w-2xl mx-auto">Milhares de pessoas já transformaram sua relação com a comida e redescobriram o prazer de viver sem lactose. Chegou a sua vez!</p>
-            <div className="bg-white text-foreground rounded-lg p-6 md:p-8 inline-block shadow-2xl">
+            <p className="text-md md:text-lg mb-8 max-w-3xl mx-auto">Milhares de pessoas já transformaram sua relação com a comida. Ao aceitar o desafio, você recebe acesso imediato ao nosso material completo para redescobrir o prazer de viver sem lactose.</p>
+            <div className="bg-white text-foreground rounded-lg p-6 md:p-8 inline-block shadow-2xl max-w-md w-full">
+              <h3 className="text-xl font-bold mb-2">Seu acesso inclui:</h3>
+                <ul className="text-left space-y-2 mb-6 text-foreground/90">
+                    <li className="flex items-start gap-2"><Check className="w-5 h-5 text-primary mt-1 shrink-0" /><span>E-book com Plano de Refeições para 7 Dias</span></li>
+                    <li className="flex items-start gap-2"><Check className="w-5 h-5 text-primary mt-1 shrink-0" /><span>Receitas deliciosas e fáceis de fazer</span></li>
+                    <li className="flex items-start gap-2"><Check className="w-5 h-5 text-primary mt-1 shrink-0" /><span>Todos os Bônus Exclusivos</span></li>
+                    <li className="flex items-start gap-2"><Check className="w-5 h-5 text-primary mt-1 shrink-0" /><span>Acesso à Comunidade de Suporte</span></li>
+                </ul>
               <p className="text-md md:text-lg">Tudo isso por apenas:</p>
               <p className="text-4xl md:text-6xl font-extrabold my-2 text-primary">R$27,90</p>
               <p className="text-xs md:text-sm text-gray-500">Acesso Imediato ao Desafio!</p>
@@ -152,7 +159,7 @@ export default function Home() {
         </section>
         
         {/* Testimonials Section */}
-        <section className="py-12 md:py-20 bg-background">
+        <section className="py-12 md:py-20 bg-background text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-10">O Que Nossos Participantes Dizem:</h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -172,7 +179,7 @@ export default function Home() {
         </section>
 
         {/* Guarantee Section */}
-        <section className="w-full py-12 bg-muted/40">
+        <section className="w-full py-12 bg-muted/40 text-center">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center bg-white p-6 md:p-8 rounded-lg shadow-xl">
               <ShieldCheck className="h-16 w-16 md:h-24 md:w-24 text-primary shrink-0"/>
