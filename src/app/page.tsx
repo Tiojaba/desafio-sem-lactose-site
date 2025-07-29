@@ -80,7 +80,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">Você se identifica com alguma dessas dores?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {painPoints.map((pain, index) => (
-                <div key={index} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 p-4 bg-background rounded-lg shadow-md">
+                <div key={index} className="flex flex-col items-center text-center gap-4 p-4 bg-background rounded-lg shadow-md">
                   <span className="text-3xl mt-1">😔</span>
                   <p className="text-foreground/90">{pain.text}</p>
                 </div>
@@ -97,8 +97,8 @@ export default function Home() {
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Prepare-se para uma semana de descobertas e sabores incríveis! Nosso desafio foi criado para ser prático, delicioso e transformador, atacando diretamente suas maiores dores.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {whatYouGet.map((item, index) => (
-                <Card key={index} className="bg-accent/20 border-none shadow-lg text-center md:text-left hover:shadow-xl transition-shadow">
-                  <CardHeader className="flex flex-col md:flex-row items-center gap-4">
+                <Card key={index} className="bg-accent/20 border-none shadow-lg text-center hover:shadow-xl transition-shadow">
+                  <CardHeader className="flex flex-col items-center gap-4">
                     <item.icon className="w-10 h-10 text-primary" />
                     <CardTitle className="text-md font-bold text-foreground">{item.title}</CardTitle>
                   </CardHeader>
@@ -118,9 +118,9 @@ export default function Home() {
             <p className="text-md md:text-lg text-foreground/80 mb-12 max-w-3xl mx-auto">Para garantir que você tenha a melhor experiência e resultados, incluímos bônus que vão além das receitas, resolvendo suas maiores dificuldades:</p>
             <div className="space-y-6">
               {bonuses.map((bonus, index) => (
-                <Card key={index} className="bg-background shadow-md text-center md:text-left">
+                <Card key={index} className="bg-background shadow-md text-center">
                   <CardHeader>
-                    <CardTitle className="flex flex-col md:flex-row items-center gap-3 text-lg md:text-xl text-primary">
+                    <CardTitle className="flex flex-col items-center gap-3 text-lg md:text-xl text-primary">
                       <span className="text-2xl">🎁</span> {bonus.title}
                     </CardTitle>
                   </CardHeader>
@@ -174,7 +174,7 @@ export default function Home() {
         {/* Guarantee Section */}
         <section className="w-full py-12 bg-muted/40">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6 text-center md:text-left bg-white p-6 md:p-8 rounded-lg shadow-xl">
+            <div className="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center bg-white p-6 md:p-8 rounded-lg shadow-xl">
               <ShieldCheck className="h-16 w-16 md:h-24 md:w-24 text-primary shrink-0"/>
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
@@ -214,5 +214,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
