@@ -56,7 +56,7 @@ export default function Home() {
               DESAFIO 7 DIAS SEM LACTOSE: <span className="text-primary font-bold">Sabor, Leveza e Liberdade</span> na Sua Mesa!
             </h1>
              <Image 
-              src="https://placehold.co/600x400.png" 
+              src="https://i.imgur.com/bpPL2HL.png" 
               alt="Prato de comida saudável e colorida" 
               width={600} 
               height={400}
@@ -256,5 +256,6 @@ export default function Home() {
     </div>
   );
 }
+
 
     
