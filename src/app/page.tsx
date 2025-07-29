@@ -4,40 +4,19 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Calendar, UtensilsCrossed, ShoppingCart, Lightbulb, ShieldCheck, Check, Loader2, Sparkles } from 'lucide-react';
+import { Calendar, UtensilsCrossed, ShoppingCart, Lightbulb, ShieldCheck, Check } from 'lucide-react';
 import Image from 'next/image';
-import { suggestRecipes, SuggestRecipesOutput } from '@/ai/flows/suggest-recipes';
 
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [ingredients, setIngredients] = useState('');
-  const [recipes, setRecipes] = useState<SuggestRecipesOutput | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
-  const handleRecipeSuggestion = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError(null);
-    setRecipes(null);
-    try {
-      const result = await suggestRecipes({ ingredients });
-      setRecipes(result);
-    } catch (err) {
-      setError('Desculpe, não foi possível gerar as receitas. Tente novamente.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
   
   const painPoints = [
     { text: "Sofre com inchaço extremo, dores abdominais intensas, diarreia (ou constipação severa!), vômitos e náuseas após comer?" },
@@ -150,73 +129,6 @@ export default function Home() {
             </div>
         </section>
         
-        {/* Recipe Suggester Section */}
-        <section id="sugestoes" className="w-full py-12 md:py-20 bg-muted/40 text-center">
-          <div className="container mx-auto px-4 max-w-2xl">
-            <p className="text-md md:text-lg text-foreground/80 mb-8">
-              <Sparkles className="inline-block w-6 h-6 text-primary mr-2" />
-              Digite os ingredientes que você tem em casa e nossa IA criará receitas deliciosas e sem lactose para você!
-            </p>
-            <form onSubmit={handleRecipeSuggestion} className="flex flex-col sm:flex-row gap-4 mb-8">
-              <div className="flex-grow grid gap-1.5">
-                <Label htmlFor="ingredients" className="sr-only">Ingredientes</Label>
-                <Input
-                  id="ingredients"
-                  type="text"
-                  placeholder="Ex: frango, tomate, arroz, cebola..."
-                  value={ingredients}
-                  onChange={(e) => setIngredients(e.target.value)}
-                  className="w-full"
-                  disabled={isLoading}
-                />
-              </div>
-              <Button type="submit" size="lg" disabled={isLoading || !ingredients}>
-                {isLoading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Gerando...
-                  </>
-                ) : (
-                  "Sugerir Receitas"
-                )}
-              </Button>
-            </form>
-
-            {error && <p className="text-destructive mt-4">{error}</p>}
-            
-            {recipes && (
-              <div className="text-left mt-10">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 text-center">Aqui estão suas sugestões:</h3>
-                <Accordion type="single" collapsible className="w-full">
-                  {recipes.recipes.map((recipe, index) => (
-                    <AccordionItem value={`item-${index}`} key={index}>
-                      <AccordionTrigger className="text-lg font-semibold hover:no-underline">{recipe.name}</AccordionTrigger>
-                      <AccordionContent className="bg-background p-6 rounded-md">
-                        <p className="mb-4 text-foreground/80">{recipe.description}</p>
-                        <div className="grid md:grid-cols-2 gap-6">
-                          <div>
-                            <h4 className="font-bold mb-2 text-primary">Ingredientes:</h4>
-                            <ul className="list-disc list-inside space-y-1 text-foreground/90">
-                              {recipe.ingredients.map((ing, i) => <li key={i}>{ing}</li>)}
-                            </ul>
-                          </div>
-                          <div>
-                            <h4 className="font-bold mb-2 text-primary">Modo de Preparo:</h4>
-                            <ol className="list-decimal list-inside space-y-2 text-foreground/90">
-                              {recipe.instructions.map((step, i) => <li key={i}>{step}</li>)}
-                            </ol>
-                          </div>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            )}
-          </div>
-        </section>
-
-
         {/* What You Get Section */}
         <section className="w-full py-12 md:py-20 bg-background text-center">
           <div className="container mx-auto px-4 max-w-5xl">
