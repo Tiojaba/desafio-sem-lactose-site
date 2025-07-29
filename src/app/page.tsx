@@ -106,7 +106,7 @@ export default function Home() {
                   alt="Mockup da área de membros do desafio"
                   width={800} 
                   height={600}
-                  className="mx-auto rounded-xl shadow-lg mb-12 w-full max-w-2xl"
+                  className="mx-auto rounded-xl mb-12 w-full max-w-2xl"
                   data-ai-hint="challenge members area"
                 />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
