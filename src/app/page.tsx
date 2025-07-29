@@ -153,11 +153,8 @@ export default function Home() {
         {/* Recipe Suggester Section */}
         <section id="sugestoes" className="w-full py-12 md:py-20 bg-muted/40 text-center">
           <div className="container mx-auto px-4 max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              <Sparkles className="inline-block w-8 h-8 text-primary mr-2" />
-              Não sabe o que cozinhar?
-            </h2>
             <p className="text-md md:text-lg text-foreground/80 mb-8">
+              <Sparkles className="inline-block w-6 h-6 text-primary mr-2" />
               Digite os ingredientes que você tem em casa e nossa IA criará receitas deliciosas e sem lactose para você!
             </p>
             <form onSubmit={handleRecipeSuggestion} className="flex flex-col sm:flex-row gap-4 mb-8">
