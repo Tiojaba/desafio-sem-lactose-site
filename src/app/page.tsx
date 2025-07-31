@@ -197,26 +197,6 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Testimonials Section */}
-        <section className="py-12 md:py-20 bg-background text-center">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-10">O Que Nossos Participantes Dizem:</h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="bg-muted/40 border-gray-200/50 shadow-lg flex flex-col p-6 text-center">
-                   <CardContent className="flex-grow">
-                    <p className="text-foreground/80 italic">"{testimonial.text}"</p>
-                  </CardContent>
-                  <CardHeader className="pt-4">
-                    <CardTitle className="text-lg font-semibold text-primary">{testimonial.name}</CardTitle>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* About Me Section */}
         <section className="w-full py-12 md:py-20 bg-muted/40">
           <div className="container mx-auto px-4">
@@ -238,6 +218,26 @@ export default function Home() {
                   Mergulhei de cabeça na cozinha, estudei, testei e descobri um novo universo de sabores. Percebi que era possível ter uma vida leve, saudável e deliciosa! Criei o "Desafio 7 Dias Sem Lactose" para compartilhar tudo o que aprendi e encurtar o seu caminho. Meu objetivo é te mostrar que você não precisa sofrer. Você pode, e vai, redescobrir a alegria de comer sem medo. Vamos juntos nessa jornada?
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-12 md:py-20 bg-background text-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-10">O Que Nossos Participantes Dizem:</h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="bg-muted/40 border-gray-200/50 shadow-lg flex flex-col p-6 text-center">
+                   <CardContent className="flex-grow">
+                    <p className="text-foreground/80 italic">"{testimonial.text}"</p>
+                  </CardContent>
+                  <CardHeader className="pt-4">
+                    <CardTitle className="text-lg font-semibold text-primary">{testimonial.name}</CardTitle>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </CardHeader>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -286,5 +286,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
