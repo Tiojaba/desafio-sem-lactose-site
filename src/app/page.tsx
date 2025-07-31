@@ -222,7 +222,7 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-8 rounded-lg shadow-xl">
               <Image 
-                src="https://i.imgur.com/Kh8HyAN.jpeg" 
+                src="https://i.imgur.com/nn833YV.jpeg" 
                 alt="Foto da criadora do desafio" 
                 width={250} 
                 height={250}
@@ -286,5 +286,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
