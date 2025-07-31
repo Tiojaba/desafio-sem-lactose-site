@@ -232,7 +232,7 @@ export default function Home() {
               <div className="text-center md:text-left">
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Quem sou eu?</h2>
                 <p className="text-foreground/80 mb-4">
-                  Olá! Meu nome é Juliana e, assim como você, eu sei exatamente o que é viver refém da intolerância à lactose. Por anos, sofri com desconfortos, frustrações e a sensação de que comer tinha se tornado um campo minado. Depois de muitos médicos e testes, veio o diagnóstico e com ele um desafio: como viver bem e com prazer sem lactose?
+                  Olá! Meu nome é Carolinni Sales e, assim como você, eu sei exatamente o que é viver refém da intolerância à lactose. Por anos, sofri com desconfortos, frustrações e a sensação de que comer tinha se tornado um campo minado. Depois de muitos médicos e testes, veio o diagnóstico e com ele um desafio: como viver bem e com prazer sem lactose?
                 </p>
                 <p className="text-foreground/80">
                   Mergulhei de cabeça na cozinha, estudei, testei e descobri um novo universo de sabores. Percebi que era possível ter uma vida leve, saudável e deliciosa! Criei o "Desafio 7 Dias Sem Lactose" para compartilhar tudo o que aprendi e encurtar o seu caminho. Meu objetivo é te mostrar que você não precisa sofrer. Você pode, e vai, redescobrir a alegria de comer sem medo. Vamos juntos nessa jornada?
@@ -286,3 +286,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
