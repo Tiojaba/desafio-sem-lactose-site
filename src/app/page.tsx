@@ -200,7 +200,7 @@ export default function Home() {
         {/* About Me Section */}
         <section className="w-full py-12 md:py-20 bg-muted/40">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-8 rounded-lg shadow-xl">
+            <div className="flex flex-col items-center text-center gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-8 rounded-lg shadow-xl md:flex-row md:text-left">
               <Image 
                 src="https://i.imgur.com/nn833YV.jpeg" 
                 alt="Foto da criadora do desafio" 
@@ -209,7 +209,7 @@ export default function Home() {
                 className="rounded-full w-48 h-48 md:w-60 md:h-60 object-cover shrink-0"
                 data-ai-hint="portrait smiling woman"
               />
-              <div className="text-center md:text-left">
+              <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Quem sou eu?</h2>
                 <p className="text-foreground/80 mb-4">
                   Olá! Meu nome é Carolinni Sales e, assim como você, eu sei exatamente o que é viver refém da intolerância à lactose. Por anos, sofri com desconfortos, frustrações e a sensação de que comer tinha se tornado um campo minado. Depois de muitos médicos e testes, veio o diagnóstico e com ele um desafio: como viver bem e com prazer sem lactose?
