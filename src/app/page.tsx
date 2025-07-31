@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <main>
+      <main className="overflow-x-hidden">
         {/* Hero Section */}
         <section id="home" className="w-full py-12 md:py-20 bg-gradient-to-b from-accent/50 to-background text-center">
           <div className="container mx-auto px-4">
@@ -71,7 +71,7 @@ export default function Home() {
               Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, <span className="text-primary font-semibold">comendo com prazer!</span>
             </p>
             <a href="#cta">
-              <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+              <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-auto whitespace-normal py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                 Quero Aceitar o Desafio Agora!
               </Button>
             </a>
@@ -189,7 +189,7 @@ export default function Home() {
               <p className="text-4xl md:text-6xl font-extrabold my-2 text-primary">R$27,90</p>
               <p className="text-xs md:text-sm text-gray-500">Acesso Imediato ao Desafio!</p>
               <a href="https://pay.kirvano.com/e5f45d01-223a-4886-ae05-5ced3b68a2f3" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="mt-6 w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-3 px-8 md:py-4 md:px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                <Button size="lg" className="mt-6 w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-auto whitespace-normal py-4 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                   SIM! QUERO ACEITAR O DESAFIO AGORA!
                 </Button>
               </a>
@@ -203,7 +203,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-6 md:p-8 rounded-lg shadow-xl">
               <Image 
                 src="https://i.imgur.com/nn833YV.jpeg" 
-                alt="Foto da criadora do desafio" 
+                alt="Foto da criadora do desafio, Carolinni Sales" 
                 width={250} 
                 height={250}
                 className="rounded-full w-48 h-48 md:w-60 md:h-60 object-cover shrink-0"
@@ -263,7 +263,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
                <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-6">Comece Sua Nova Vida <span className="font-bold text-primary">Zero Lactose</span> Hoje Mesmo!</h2>
                 <a href="https://pay.kirvano.com/e5f45d01-223a-4886-ae05-5ced3b68a2f3" target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg md:text-xl py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-auto whitespace-normal py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                         SIM! QUERO ACEITAR O DESAFIO AGORA!
                     </Button>
                 </a>
@@ -285,6 +285,4 @@ export default function Home() {
       </footer>
     </div>
   );
-}
-
-    
+ 
