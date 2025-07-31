@@ -45,7 +45,7 @@ export default function Home() {
   ];
 
   const testimonials = [
-    { name: "Miriane S.", role: "Participante do Desafio", text: "Sofri por anos com dores horríveis, inchaço e sem saber o que tinha. Depois de descobrir a intolerância, o Desafio 7 Dias foi uma libertação! Finalmente me sinto no controle e sem o medo de passar mal." },
+    { name: "Miriane S.", role: "Participante do Desafio", text: "Sofri por anos com dores horríveis, inchaço и sem saber o que tinha. Depois de descobrir a intolerância, o Desafio 7 Dias foi uma libertação! Finalmente me sinto no controle e sem o medo de passar mal." },
     { name: "Cliente Satisfeito", role: "São Paulo", text: "Eu tinha muita dor de barriga e gases. Mudei minha alimentação com o Desafio e em poucos dias já me sinto outra pessoa! Valeu cada centavo." },
     { name: "Lira P.", role: "Participante do Desafio", text: "Passei muito mal por anos e fui forçada a mudar. Com o plano de refeições e as dicas de substituição, estou muito melhor e comendo com prazer novamente!" },
   ];
@@ -217,10 +217,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Guarantee Section */}
-        <section className="w-full py-12 bg-muted/40 text-center">
+        {/* About Me Section */}
+        <section className="w-full py-12 md:py-20 bg-muted/40">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center bg-white p-6 md:p-8 rounded-lg shadow-xl">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-8 rounded-lg shadow-xl">
+              <Image 
+                src="https://i.imgur.com/Kh8HyAN.jpeg" 
+                alt="Foto da criadora do desafio" 
+                width={250} 
+                height={250}
+                className="rounded-full w-48 h-48 md:w-60 md:h-60 object-cover shrink-0"
+                data-ai-hint="portrait smiling woman"
+              />
+              <div className="text-center md:text-left">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Quem sou eu?</h2>
+                <p className="text-foreground/80 mb-4">
+                  Olá! Meu nome é Juliana e, assim como você, eu sei exatamente o que é viver refém da intolerância à lactose. Por anos, sofri com desconfortos, frustrações e a sensação de que comer tinha se tornado um campo minado. Depois de muitos médicos e testes, veio o diagnóstico e com ele um desafio: como viver bem e com prazer sem lactose?
+                </p>
+                <p className="text-foreground/80">
+                  Mergulhei de cabeça na cozinha, estudei, testei e descobri um novo universo de sabores. Percebi que era possível ter uma vida leve, saudável e deliciosa! Criei o "Desafio 7 Dias Sem Lactose" para compartilhar tudo o que aprendi e encurtar o seu caminho. Meu objetivo é te mostrar que você não precisa sofrer. Você pode, e vai, redescobrir a alegria de comer sem medo. Vamos juntos nessa jornada?
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Guarantee Section */}
+        <section className="w-full py-12 bg-background text-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center bg-white p-6 md:p-8 rounded-lg shadow-xl border">
               <ShieldCheck className="h-16 w-16 md:h-24 md:w-24 text-primary shrink-0"/>
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-foreground">Sua Satisfação é Nossa Prioridade</h3>
@@ -260,3 +286,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
