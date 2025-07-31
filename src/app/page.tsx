@@ -200,7 +200,7 @@ export default function Home() {
         {/* About Me Section */}
         <section className="w-full py-12 md:py-20 bg-muted/40">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center text-center gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-8 rounded-lg shadow-xl md:flex-row md:text-left">
+            <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-6 md:p-8 rounded-lg shadow-xl">
               <Image 
                 src="https://i.imgur.com/nn833YV.jpeg" 
                 alt="Foto da criadora do desafio" 
