@@ -197,9 +197,9 @@ export default function Home() {
           </div>
         </section>
         
-        {/* About Me Section */}
+      {/* About Me Section */}
         <section className="w-full py-12 md:py-20 bg-muted/40">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto">
             <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12 max-w-4xl mx-auto bg-background p-6 md:p-8 rounded-lg shadow-xl">
               <Image 
                 src="https://i.imgur.com/nn833YV.jpeg" 
@@ -221,6 +221,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
 
         {/* Testimonials Section */}
         <section className="py-12 md:py-20 bg-background text-center">
@@ -285,4 +286,4 @@ export default function Home() {
       </footer>
     </div>
   );
- 
+}
