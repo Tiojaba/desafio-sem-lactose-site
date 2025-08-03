@@ -70,7 +70,7 @@ export default function Home() {
             <p className="text-md sm:text-lg text-foreground/80 mt-4 max-w-2xl mx-auto">
               Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, <span className="text-primary font-semibold">comendo com prazer!</span>
             </p>
-            <a href="#cta">
+            <a href="https://pay.kirvano.com/e5f45d01-223a-4886-ae05-5ced3b68a2f3" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-auto whitespace-normal py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                 Quero Aceitar o Desafio Agora!
               </Button>
