@@ -751,7 +751,7 @@ export {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSkeleton,
+  _SidebarMenuSkeleton,
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
@@ -761,5 +761,3 @@ export {
   SidebarTrigger,
   useSidebar,
 }
-
-    

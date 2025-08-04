@@ -65,5 +65,3 @@ const suggestRecipesFlow = ai.defineFlow(
     return output!;
   }
 );
-
-    
