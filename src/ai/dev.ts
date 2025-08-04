@@ -2,4 +2,4 @@
 import { config } from 'dotenv';
 config();
 
-import './flows/suggest-recipes.ts';
+import './flows/suggest-recipes.js';
