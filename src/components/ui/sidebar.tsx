@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -751,7 +752,7 @@ export {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-  _SidebarMenuSkeleton,
+  SidebarMenuSkeleton,
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
