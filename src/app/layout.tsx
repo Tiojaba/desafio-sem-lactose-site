@@ -1,8 +1,8 @@
 
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster";
-import { cn } from '@/lib/utils';
+import { Toaster } from "../components/ui/toaster";
+import { cn } from '../lib/utils';
 import { Poppins } from 'next/font/google';
 import Script from 'next/script';
 

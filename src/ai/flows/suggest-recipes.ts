@@ -7,7 +7,7 @@
  * - SuggestRecipesOutput - The return type for the suggestRecipes function.
  */
 
-import {ai} from '@/ai/genkit';
+import {ai} from '../genkit';
 import {z} from 'zod';
 
 const SuggestRecipesInputSchema = z.object({
@@ -65,3 +65,5 @@ const suggestRecipesFlow = ai.defineFlow(
     return output!;
   }
 );
+
+    

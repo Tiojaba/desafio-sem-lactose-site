@@ -1,4 +1,6 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/suggest-recipes.ts';
+import './flows/suggest-recipes.ts';
+
+    
