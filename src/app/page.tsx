@@ -70,7 +70,7 @@ export default function Home() {
             <p className="text-md sm:text-lg text-foreground/80 mt-4 max-w-2xl mx-auto">
               Cansado(a) de inchaço, dores e a frustração de não poder comer o que ama? Aceite o desafio e descubra como é fácil viver sem lactose, <span className="text-primary font-semibold">comendo com prazer!</span>
             </p>
-            <a href="https://pay.kirvano.com/e5f45d01-223a-4886-ae05-5ced3b68a2f3" target="_blank" rel="noopener noreferrer">
+            <a href="#cta" >
               <Button size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-auto whitespace-normal py-4 px-10 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                 Quero Aceitar o Desafio Agora!
               </Button>
@@ -173,7 +173,7 @@ export default function Home() {
         </section>
         
         {/* CTA Section */}
-        <section id="cta" className="w-full py-20 bg-gradient-to-br from-primary to-green-600 text-white">
+        <section id="cta" className="w-full py-20 bg-gradient-to-br from-primary to-green-600 text-white scroll-mt-20">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4">Aceite o Desafio e Transforme Sua Vida em 7 Dias!</h2>
             <p className="text-md md:text-lg mb-8 max-w-3xl mx-auto">Milhares de pessoas já transformaram sua relação com a comida. Ao aceitar o desafio, você recebe <span className="font-bold underline">acesso imediato</span> ao nosso material completo para redescobrir o prazer de viver sem lactose.</p>
@@ -287,3 +287,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
